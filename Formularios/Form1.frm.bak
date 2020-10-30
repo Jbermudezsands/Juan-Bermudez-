@@ -1,0 +1,814 @@
+VERSION 5.00
+Begin VB.Form Form1 
+   Caption         =   "SDK Demo"
+   ClientHeight    =   6270
+   ClientLeft      =   2865
+   ClientTop       =   1110
+   ClientWidth     =   10170
+   BeginProperty Font 
+      Name            =   "Tahoma"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   6270
+   ScaleWidth      =   10170
+   Begin VB.ComboBox Combo1 
+      Height          =   315
+      ItemData        =   "Form1.frx":0000
+      Left            =   4680
+      List            =   "Form1.frx":001F
+      TabIndex        =   36
+      Text            =   "Combo1"
+      Top             =   120
+      Width           =   975
+   End
+   Begin VB.CommandButton Command34 
+      Caption         =   "End"
+      Height          =   375
+      Left            =   9000
+      TabIndex        =   35
+      Top             =   120
+      Width           =   855
+   End
+   Begin VB.CommandButton Command33 
+      Caption         =   "Start"
+      Height          =   375
+      Left            =   8040
+      TabIndex        =   34
+      Top             =   120
+      Width           =   855
+   End
+   Begin VB.TextBox Text2 
+      Height          =   375
+      Left            =   6480
+      TabIndex        =   33
+      Text            =   "192.168.0.217"
+      Top             =   120
+      Width           =   1455
+   End
+   Begin VB.OptionButton Option2 
+      Caption         =   "Net"
+      Height          =   255
+      Left            =   2760
+      TabIndex        =   32
+      Top             =   120
+      Width           =   735
+   End
+   Begin VB.OptionButton Option1 
+      Caption         =   "Com"
+      Height          =   255
+      Left            =   1920
+      TabIndex        =   31
+      Top             =   120
+      Value           =   -1  'True
+      Width           =   615
+   End
+   Begin VB.TextBox Text1 
+      Height          =   375
+      Left            =   720
+      TabIndex        =   28
+      Text            =   "1"
+      Top             =   120
+      Width           =   975
+   End
+   Begin VB.CommandButton Command32 
+      Caption         =   "Set WG"
+      Height          =   375
+      Left            =   6840
+      TabIndex        =   26
+      Top             =   5520
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command31 
+      Caption         =   "Get machine info"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   25
+      Top             =   5040
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command30 
+      Caption         =   "Reset machine"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   24
+      Top             =   5520
+      Width           =   3015
+   End
+   Begin VB.Timer Timer2 
+      Interval        =   1000
+      Left            =   3840
+      Top             =   5520
+   End
+   Begin VB.CommandButton Command29 
+      Caption         =   "Realtime mode"
+      Height          =   375
+      Left            =   6840
+      TabIndex        =   23
+      Top             =   5040
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command28 
+      Caption         =   "Admin password"
+      Height          =   375
+      Left            =   6840
+      TabIndex        =   22
+      Top             =   4440
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command27 
+      Caption         =   "Set volume"
+      Height          =   375
+      Left            =   6840
+      TabIndex        =   21
+      Top             =   3840
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command26 
+      Caption         =   "Open door 2"
+      Height          =   375
+      Left            =   6840
+      TabIndex        =   20
+      Top             =   3120
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command24 
+      Caption         =   "Get record Ex"
+      Height          =   375
+      Left            =   6840
+      TabIndex        =   19
+      Top             =   1920
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command22 
+      Caption         =   "Clear record"
+      Height          =   375
+      Left            =   6840
+      TabIndex        =   18
+      Top             =   1320
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command20 
+      Caption         =   "Get count"
+      Height          =   375
+      Left            =   6840
+      TabIndex        =   17
+      Top             =   720
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command19 
+      Caption         =   "Get user Ex"
+      Height          =   375
+      Left            =   3480
+      TabIndex        =   16
+      Top             =   5520
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command18 
+      Caption         =   "Add packet format&Write FP"
+      Height          =   375
+      Left            =   3480
+      TabIndex        =   15
+      Top             =   3120
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command17 
+      Caption         =   "Get FP&Del packet format"
+      Height          =   375
+      Left            =   3480
+      TabIndex        =   14
+      Top             =   2520
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command16 
+      Caption         =   "Delete all user"
+      Height          =   375
+      Left            =   3480
+      TabIndex        =   13
+      Top             =   5040
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command15 
+      Caption         =   "Delete user"
+      Height          =   375
+      Left            =   3480
+      TabIndex        =   12
+      Top             =   4440
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command14 
+      Caption         =   "Add/Modify user"
+      Height          =   375
+      Left            =   3480
+      TabIndex        =   11
+      Top             =   3840
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command12 
+      Caption         =   "Read disk file&Write FP"
+      Height          =   375
+      Left            =   3480
+      TabIndex        =   10
+      Top             =   1920
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command11 
+      Caption         =   "Get FP&Write disk file"
+      Height          =   375
+      Left            =   3480
+      TabIndex        =   9
+      Top             =   1320
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command10 
+      Caption         =   "Get FP&Write FP"
+      Height          =   375
+      Left            =   3480
+      TabIndex        =   8
+      Top             =   720
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command9 
+      Caption         =   "Synchronize"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   7
+      Top             =   4440
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command8 
+      Caption         =   "Get time"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   6
+      Top             =   3840
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command7 
+      Caption         =   "Set MAC"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   5
+      Top             =   3360
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command6 
+      Caption         =   "Set server IP"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   4
+      Top             =   2760
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command5 
+      Caption         =   "Set gateway"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   3
+      Top             =   2280
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command4 
+      Caption         =   "Set mask"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   2
+      Top             =   1800
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command3 
+      Caption         =   "Set machine IP"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   1
+      Top             =   1200
+      Width           =   3015
+   End
+   Begin VB.CommandButton Command2 
+      Caption         =   "Get network set"
+      Height          =   375
+      Left            =   120
+      TabIndex        =   0
+      Top             =   720
+      Width           =   3015
+   End
+   Begin VB.Label Label4 
+      Caption         =   "IP Addr:"
+      Height          =   255
+      Left            =   5760
+      TabIndex        =   30
+      Top             =   120
+      Width           =   615
+   End
+   Begin VB.Label Label3 
+      Caption         =   "COM Port:"
+      Height          =   255
+      Left            =   3720
+      TabIndex        =   29
+      Top             =   120
+      Width           =   855
+   End
+   Begin VB.Label Label1 
+      Caption         =   "ID:"
+      Height          =   255
+      Left            =   240
+      TabIndex        =   27
+      Top             =   120
+      Width           =   375
+   End
+End
+Attribute VB_Name = "Form1"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Private Declare Sub PCopyMemory Lib "kernel32" Alias "RtlMoveMemory" _
+            (Destination As Any, ByVal Source As Long, ByVal Length As Long)
+Private Declare Sub PPCopyMemory Lib "kernel32" Alias "RtlMoveMemory" _
+            (ByVal Destination As Long, ByVal Source As Long, ByVal Length As Long)
+Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
+Private Type SYSTEMTIME
+        wYear As Integer
+        wMonth As Integer
+        wDayOfWeek As Integer
+        wDay As Integer
+        wHour As Integer
+        wMinute As Integer
+        wSecond As Integer
+        wMilliseconds As Integer
+End Type
+Private Declare Sub GetLocalTime Lib "kernel32" (lpSystemTime As SYSTEMTIME)
+Dim IDNumber As Long
+
+
+
+
+Private Sub Command33_Click()
+    
+    IDNumber = CLng(Text1.Text)
+    If Option1.Value Then
+        Call CKT_RegisterSno(IDNumber, Combo1.ListIndex + 1) 'if from com
+    End If
+    If Option2.Value Then
+        Call CKT_RegisterNet(IDNumber, Text2.Text) 'if from net
+    End If
+
+End Sub
+
+Private Sub Command34_Click()
+    Call CKT_UnregisterSnoNet(IDNumber)
+
+End Sub
+
+Private Sub Form_Load()
+    Combo1.ListIndex = 0
+
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    CKT_Disconnect
+    Sleep (500)
+End Sub
+
+Private Sub Command1_Click()
+
+End Sub
+
+Private Sub Command2_Click()
+    Dim devnetinfo As NETINFO
+    
+    If CKT_GetDeviceNetInfo(IDNumber, devnetinfo) Then
+        msg$ = "IP: " & devnetinfo.IP(0) & "." & devnetinfo.IP(1) & "." & devnetinfo.IP(2) & "." & devnetinfo.IP(3) & Chr$(10)
+        msg$ = msg$ + "Mask: " & devnetinfo.Mask(0) & "." & devnetinfo.Mask(1) & "." & devnetinfo.Mask(2) & "." & devnetinfo.Mask(3) & Chr$(10)
+        msg$ = msg$ + "Gate: " & devnetinfo.Gateway(0) & "." & devnetinfo.Gateway(1) & "." & devnetinfo.Gateway(2) & "." & devnetinfo.Gateway(3) & Chr$(10)
+        msg$ = msg$ + "Server: " & devnetinfo.ServerIP(0) & "." & devnetinfo.ServerIP(1) & "." & devnetinfo.ServerIP(2) & "." & devnetinfo.ServerIP(3) & Chr$(10)
+        msg$ = msg$ + "MAC: " & devnetinfo.MAC(0) & "." & devnetinfo.MAC(1) & "." & devnetinfo.MAC(2) & "." & devnetinfo.MAC(3) & "." & devnetinfo.MAC(4) & "." & devnetinfo.MAC(5) & Chr$(10)
+        MsgBox msg$
+    End If
+End Sub
+
+Private Sub Command3_Click()
+    Dim IP(3) As Byte
+    
+    IP(0) = 192
+    IP(1) = 168
+    IP(2) = 10
+    IP(3) = 254
+    
+    If CKT_SetDeviceIPAddr(IDNumber, IP(0)) Then
+        msg$ = "New IP: 192.168.10.254"
+    Else
+        msg$ = "Fail to set IP to (192.168.10.254)"
+    End If
+    
+    MsgBox msg$
+End Sub
+
+Private Sub Command4_Click()
+    Dim Mask(3) As Byte
+    
+    Mask(0) = 255
+    Mask(1) = 255
+    Mask(2) = 255
+    Mask(3) = 0
+    
+    If CKT_SetDeviceMask(IDNumber, Mask(0)) Then
+        msg$ = "New Mask: 255.255.255.0"
+    Else
+        msg$ = "Fail to set Mask to (255.255.255.0)"
+    End If
+    
+    MsgBox msg$
+End Sub
+
+Private Sub Command5_Click()
+    Dim Gate(3) As Byte
+    
+    Gate(0) = 192
+    Gate(1) = 168
+    Gate(2) = 10
+    Gate(3) = 1
+    
+    If CKT_SetDeviceGateway(IDNumber, Gate(0)) Then
+        msg$ = "New Gate: 192.168.10.1"
+    Else
+        msg$ = "Fail to set Gate to (192.168.10.1)"
+    End If
+    
+    MsgBox msg$
+End Sub
+
+Private Sub Command6_Click()
+    Dim SvrIP(3) As Byte
+    
+    SvrIP(0) = 192
+    SvrIP(1) = 168
+    SvrIP(2) = 10
+    SvrIP(3) = 2
+    
+    If CKT_SetDeviceServerIPAddr(IDNumber, SvrIP(0)) Then
+        msg$ = "New SvrIP: 192.168.10.2"
+    Else
+        msg$ = "Fail to set SvrIP to (192.168.10.2)"
+    End If
+    
+    MsgBox msg$
+End Sub
+
+Private Sub Command7_Click()
+    Dim MAC(5) As Byte
+    
+    MAC(0) = 160
+    MAC(1) = 168
+    MAC(2) = 10
+    MAC(3) = 2
+    MAC(4) = 10
+    MAC(5) = 2
+    
+    If CKT_SetDeviceMAC(IDNumber, MAC(0)) Then
+        msg$ = "New MAC: 160-168-10-2-10-2"
+    Else
+        msg$ = "Fail to set MAC to (160-168-10-2-10-2)"
+    End If
+    
+    MsgBox msg$
+End Sub
+
+Private Sub Command8_Click()
+    Dim devclock As DATETIMEINFO
+    
+    If CKT_GetDeviceClock(IDNumber, devclock) Then
+        msg$ = "Clock: " & devclock.Year & "-" & devclock.Month & "-" & devclock.Day & Chr$(10) & _
+               "       " & devclock.Hour & ":" & devclock.Minute & ":" & devclock.Second
+        MsgBox msg$
+    End If
+End Sub
+
+Private Sub Command9_Click()
+    Dim tim As SYSTEMTIME
+    GetLocalTime tim
+    
+    If CKT_SetDeviceDate(IDNumber, tim.wYear, tim.wMonth, tim.wDay) Then
+        MsgBox "Sucess to send date"
+    End If
+    
+    Sleep (300)
+    
+    GetLocalTime tim
+    
+    If CKT_SetDeviceTime(IDNumber, tim.wHour, tim.wMinute, tim.wSecond) Then
+        MsgBox "Sucess to send time"
+    End If
+End Sub
+
+Private Sub Command10_Click()
+    Dim pFPData As Long
+    Dim FPDataLen As Long
+    Dim vbFPData() As Byte
+    
+    If CKT_GetFPTemplate(IDNumber, 100, 0, pFPData, FPDataLen) = 1 Then
+        ReDim vbFPData(FPDataLen - 1) As Byte
+        Call PCopyMemory(vbFPData(0), pFPData, FPDataLen)
+        CKT_FreeMemory (pFPData)
+        
+        ' now there are fingerprint data in vbFPData .
+        i = 0
+        For Each By In vbFPData
+            If i = 10 Then
+                msg$ = msg$ + Chr(10)
+                i = 0
+            End If
+            msg$ = msg$ + Hex(By) & " "
+            i = i + 1
+        Next 'i
+        
+        MsgBox msg$
+        
+        If CKT_PutFPTemplate(IDNumber, 100, 1, vbFPData(0), FPDataLen) = 1 Then
+            MsgBox " the first fingerprint wrote and the second fingerprint successful"
+        Else
+            MsgBox "the first fingerprint wrote and the second fingerprint failed "
+        End If
+    End If
+End Sub
+
+Private Sub Command11_Click()
+    If CKT_GetFPTemplateSaveFile(IDNumber, 200, 0, "C:\1.anv") = 1 Then
+        MsgBox "fingerprint data save in C:\1.anv"
+    End If
+End Sub
+
+Private Sub Command12_Click()
+    If CKT_PutFPTemplateLoadFile(IDNumber, 100, 1, "C:\1.anv") = 1 Then
+        MsgBox "fingerprint data get from C:\1.anv£¬and download to time&attendance device"
+    End If
+End Sub
+
+Private Sub Command13_Click()
+
+End Sub
+
+Private Sub Command14_Click()
+    Dim mpiRet As Long
+    Dim person As PERSONINFO
+    
+    With person
+        .CardNo = 0
+        .Name = "zyp"
+        .Password = "123"
+        .PersonID = 1
+    End With
+    
+    mpiRet = CKT_ModifyPersonInfo(IDNumber, person)
+    If mpiRet = CKT_RESULT_ADDOK Then
+        MsgBox "add successfully"
+    ElseIf mpiRet = CKT_RESULT_CHANGEOK Then
+        MsgBox "modeify successfully "
+    ElseIf mpiRet = CKT_ERROR_MEMORYFULL Then
+        MsgBox "memory full"
+    Else
+        MsgBox "communication failed"
+    End If
+End Sub
+
+Private Sub Command15_Click()
+    Dim dpiRet As Long
+    dpiRet = CKT_DeletePersonInfo(IDNumber, 200, 0)
+    If dpiRet = CKT_RESULT_OK Then
+        MsgBox "delete successfully"
+    ElseIf dpiRet = CKT_ERROR_NOTHISPERSON Then
+        MsgBox "user ID not exist"
+    Else
+        MsgBox "communication failed"
+    End If
+End Sub
+
+Private Sub Command16_Click()
+    If CKT_DeleteAllPersonInfo(IDNumber, 1, &Hff) Then
+        MsgBox "delete all users data "
+    End If
+End Sub
+
+Private Sub Command17_Click()
+    Dim Section(255) As Byte
+    Dim Ret As Long
+    
+    Ret = CKT_GetFPRawData(IDNumber, 200, 0, Section(0))
+    If Ret = CKT_RESULT_OK Then
+        For Each By In Section
+            msg$ = msg$ & Hex(By) & " "
+        Next
+        MsgBox msg$
+    ElseIf Ret = CKT_ERROR_NOTHISPERSON Then
+        MsgBox "user ID not exist"
+    End If
+End Sub
+
+Private Sub Command18_Click()
+    Dim Section(255) As Byte
+    Dim Ret As Long
+    
+    Ret = CKT_PutFPRawData(IDNumber, 200, 0, Section(0))
+    If Ret = CKT_RESULT_OK Then
+        MsgBox "fingerprint data written successfully"
+    ElseIf Ret = CKT_ERROR_NOTHISPERSON Then
+        MsgBox "user ID not exist"
+    End If
+End Sub
+
+Private Sub Command19_Click()
+    Dim RecordCount, RetCount As Long
+    Dim pPersons, pLongRun As Long
+    Dim person As PERSONINFO
+    
+    If CKT_ListPersonInfoEx(IDNumber, pLongRun) Then
+        Do While True
+            Ret = CKT_ListPersonProgress(pLongRun, RecordCount, RetCount, pPersons)
+            If Ret = 0 Then
+               Exit Sub
+            End If
+            
+            If (Ret <> 0) Then
+                Dim ptemp As Long
+                ptemp = pPersons
+                
+                For i = 0 To RetCount - 1
+                    Call PCopyMemory(person, pPersons, PERSONINFOSIZE)
+                    person.Name = Left(person.Name, InStr(person.Name, Chr(0)) - 1)
+                    pPersons = pPersons + PERSONINFOSIZE
+                    
+                    msg$ = msg$ & person.PersonID & "  " & Trim(person.Name) & ","
+                    If i Mod 10 = 9 Then
+                        MsgBox "RetCount:" & RetCount & Chr(10) & msg$
+                        msg$ = ""
+                    End If
+                Next
+                
+                If msg$ <> "" Then
+                    MsgBox msg$
+                End If
+                
+                If ptemp <> 0 Then
+                    Call CKT_FreeMemory(ptemp)
+                End If
+            End If
+            
+            If Ret = 1 Then
+                Exit Sub
+            End If
+        Loop
+    End If
+
+End Sub
+
+Private Sub Command20_Click()
+    Dim personCount, FPCount, clockingCount As Long
+    If CKT_GetCounts(IDNumber, personCount, FPCount, clockingCount) Then
+        msg$ = "Person: " & personCount & Chr(10) & "Finger Prints: " & FPCount & Chr(10) & "Clocking Record: " & clockingCount
+        MsgBox msg$
+    End If
+End Sub
+
+
+
+Private Sub Command22_Click()
+    If CKT_ClearClockingRecord(IDNumber, 0, 0) Then
+        MsgBox "clear off all records"
+    Else
+        MsgBox "communication failed"
+    End If
+End Sub
+
+Private Sub Command23_Click()
+    If CKT_RecallClockingRecord(IDNumber, 150) Then
+        MsgBox "set the records amount as 150"
+    End If
+End Sub
+
+Private Sub Command24_Click()
+    Dim RecordCount, RetCount As Long
+    Dim pClockings, pLongRun As Long
+    Dim clocking As CLOCKINGRECORD
+    
+    If CKT_GetClockingRecordEx(IDNumber, pLongRun) Then
+        Do While True
+            Ret = CKT_GetClockingRecordProgress(pLongRun, RecordCount, RetCount, pClockings)
+            If Ret = 0 Then
+               Exit Sub
+            End If
+            
+            If (Ret <> 0) Then
+                Dim ptemp As Long
+                ptemp = pClockings
+                
+                For i = 1 To RetCount
+                    Call PCopyMemory(clocking, pClockings, CLOCKINGRECORDSIZE)
+                    pClockings = pClockings + CLOCKINGRECORDSIZE
+                    
+                    msg$ = msg$ & clocking.PersonID & "  "
+                    If i Mod 50 = 0 Then
+                        MsgBox "RetCount:" & RetCount & Chr(10) & msg$
+                        msg$ = ""
+                    End If
+                Next
+                
+                If msg$ <> "" Then
+                    MsgBox msg$
+                End If
+                
+                If ptemp <> 0 Then
+                    Call CKT_FreeMemory(ptemp)
+                End If
+            End If
+            
+            If Ret = 1 Then
+                Exit Sub
+            End If
+        Loop
+    End If
+End Sub
+
+Private Sub Command25_Click()
+End Sub
+
+Private Sub Command26_Click()
+    If CKT_SetDoor(IDNumber, 2) Then
+        MsgBox "door opening 2 seconds"
+    End If
+End Sub
+
+Private Sub Command27_Click()
+    If CKT_SetSpeakerVolume(IDNumber, 20) Then
+        MsgBox "the maximum volume of speaker"
+    End If
+End Sub
+
+Private Sub Command28_Click()
+    If CKT_SetDeviceAdminPassword(IDNumber, 9999) Then
+        MsgBox "modify admin password"
+    End If
+End Sub
+
+Private Sub Command29_Click()
+    If CKT_SetRealtimeMode(IDNumber, 1) Then
+        MsgBox "enable realtime supervision mode"
+    End If
+End Sub
+
+
+
+Private Sub Timer2_Timer()
+'    End
+Exit Sub
+
+    Dim count As Long
+    Dim pClockings, ptemp As Long
+    Dim clocking As CLOCKINGRECORD
+    
+    count = CKT_ReadRealtimeClocking(pClockings)
+    
+    ptemp = pClockings
+    For i = 1 To count
+        Call PCopyMemory(clocking, ptemp, CLOCKINGRECORDSIZE)
+        ptemp = ptemp + CLOCKINGRECORDSIZE
+        
+        msg$ = msg$ & clocking.PersonID & "  "
+    Next
+    
+    If msg$ <> "" Then
+        MsgBox msg$
+    End If
+    
+    If pClockings <> 0 Then
+        CKT_FreeMemory (pClockings)
+    End If
+End Sub
+
+Private Sub Command30_Click()
+    If CKT_ResetDevice(IDNumber) Then
+        MsgBox "reset system successfully"
+    End If
+End Sub
+
+Private Sub Command31_Click()
+    Dim devnfo As DEVICEINFO
+        
+    If CKT_GetDeviceInfo(IDNumber, devnfo) Then
+        MsgBox devnfo.ID & Chr(10) & _
+            devnfo.MajorVersion & "." & devnfo.MinorVersion & Chr(10) ' & _
+            'devnfo.CommMode
+    End If
+End Sub
+
+Private Sub Command32_Click()
+    If CKT_SetWG(IDNumber, 1) Then
+        MsgBox "set Wiegand as ANVIZ32 successfully"
+    End If
+End Sub
+
+

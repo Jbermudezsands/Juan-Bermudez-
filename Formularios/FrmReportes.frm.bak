@@ -1,0 +1,2352 @@
+VERSION 5.00
+Object = "{86CF1D34-0C5F-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCT2.OCX"
+Object = "{F0D2F211-CCB0-11D0-A316-00AA00688B10}#1.0#0"; "MSDATLST.OCX"
+Object = "{67397AA1-7FB1-11D0-B148-00A0C922E820}#6.0#0"; "MSADODC.OCX"
+Object = "{080026CA-5CAE-11D6-82C2-000021B74250}#16.0#0"; "vbskfree.ocx"
+Object = "{E1C6DB9D-BD4A-4A61-A759-0CED75D034BF}#43.0#0"; "SmartButton.ocx"
+Begin VB.Form FrmReportes 
+   BackColor       =   &H00E0E0E0&
+   BorderStyle     =   1  'Fixed Single
+   Caption         =   "Reportes"
+   ClientHeight    =   4695
+   ClientLeft      =   45
+   ClientTop       =   330
+   ClientWidth     =   8115
+   LinkTopic       =   "Form1"
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   ScaleHeight     =   4695
+   ScaleWidth      =   8115
+   StartUpPosition =   2  'CenterScreen
+   Begin MSDataListLib.DataCombo DBCodigo 
+      Bindings        =   "FrmReportes.frx":0000
+      Height          =   315
+      Left            =   4800
+      TabIndex        =   51
+      Top             =   1800
+      Visible         =   0   'False
+      Width           =   2055
+      _ExtentX        =   3625
+      _ExtentY        =   556
+      _Version        =   393216
+      Text            =   ""
+   End
+   Begin MSAdodcLib.Adodc DtaCuentas 
+      Height          =   375
+      Left            =   480
+      Top             =   7680
+      Width           =   3975
+      _ExtentX        =   7011
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "DtaCuentas"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DtaHistorial 
+      Height          =   375
+      Left            =   480
+      Top             =   7200
+      Width           =   3975
+      _ExtentX        =   7011
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "DtaHistorial"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DtaConsulta2 
+      Height          =   375
+      Left            =   480
+      Top             =   6720
+      Width           =   3855
+      _ExtentX        =   6800
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "DtaConsulta2"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DtaConsulta 
+      Height          =   375
+      Left            =   480
+      Top             =   6240
+      Width           =   3975
+      _ExtentX        =   7011
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "DtaConsulta"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DtaGrupos 
+      Height          =   375
+      Left            =   480
+      Top             =   5760
+      Width           =   3975
+      _ExtentX        =   7011
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "DtaGrupos"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DtaPeriodos 
+      Height          =   375
+      Left            =   480
+      Top             =   5280
+      Width           =   3975
+      _ExtentX        =   7011
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "DtaPeriodos"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DtaBancos 
+      Height          =   375
+      Left            =   480
+      Top             =   4800
+      Width           =   3975
+      _ExtentX        =   7011
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "DtaBancos"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DtaElimina 
+      Height          =   375
+      Left            =   5040
+      Top             =   6480
+      Width           =   3855
+      _ExtentX        =   6800
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "DtaElimina"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DtaDatosEmpresa 
+      Height          =   375
+      Left            =   5040
+      Top             =   6000
+      Width           =   3855
+      _ExtentX        =   6800
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "DtaDatosEmpresa"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DtaTasas 
+      Height          =   375
+      Left            =   5040
+      Top             =   5640
+      Width           =   3735
+      _ExtentX        =   6588
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "DtaTasas"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DtaTasas2 
+      Height          =   375
+      Left            =   5040
+      Top             =   5280
+      Width           =   3735
+      _ExtentX        =   6588
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "DtaTasas2"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin MSAdodcLib.Adodc DtaReportes 
+      Height          =   375
+      Left            =   5040
+      Top             =   4920
+      Width           =   3855
+      _ExtentX        =   6800
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "DtaReportes"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
+   End
+   Begin VB.Timer Timer1 
+      Left            =   0
+      Top             =   0
+   End
+   Begin VB.Frame Frame6 
+      BackColor       =   &H00E0E0E0&
+      Height          =   3165
+      Left            =   360
+      TabIndex        =   33
+      Top             =   720
+      Visible         =   0   'False
+      Width           =   7560
+      Begin VB.PictureBox picTV 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00E0E0E0&
+         BorderStyle     =   0  'None
+         ForeColor       =   &H80000008&
+         Height          =   855
+         Left            =   120
+         ScaleHeight     =   855
+         ScaleWidth      =   7215
+         TabIndex        =   34
+         Top             =   240
+         Width           =   7215
+      End
+      Begin VB.Label Lb9 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando........."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   375
+         Left            =   240
+         TabIndex        =   50
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   7095
+      End
+      Begin VB.Label Lb1 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   49
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   7095
+      End
+      Begin VB.Label Lb2 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando.."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   48
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   5175
+      End
+      Begin VB.Label Lb3 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando..."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   47
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   5175
+      End
+      Begin VB.Label Lb4 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando...."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   46
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   5175
+      End
+      Begin VB.Label Lb5 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando....."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   45
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   7095
+      End
+      Begin VB.Label Lb6 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando......"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   44
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   5175
+      End
+      Begin VB.Label Lb7 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando......."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   43
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   5175
+      End
+      Begin VB.Label Lb8 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando........"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   42
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   5175
+      End
+      Begin VB.Label Lb0 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   41
+         Top             =   2520
+         Width           =   6735
+      End
+      Begin VB.Label Lb10 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando.........."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   40
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   6735
+      End
+      Begin VB.Label Lb11 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando..........."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   39
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   6735
+      End
+      Begin VB.Label Lb12 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando............"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   38
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   6735
+      End
+      Begin VB.Label Lb13 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando............."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   37
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   6735
+      End
+      Begin VB.Label Lb14 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando.............."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   36
+         Top             =   2520
+         UseMnemonic     =   0   'False
+         Visible         =   0   'False
+         Width           =   6735
+      End
+      Begin VB.Label Lb15 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Procesando..............."
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   18
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00C00000&
+         Height          =   495
+         Left            =   240
+         TabIndex        =   35
+         Top             =   2520
+         Visible         =   0   'False
+         Width           =   5175
+      End
+      Begin VB.Image Img2 
+         Height          =   720
+         Left            =   1080
+         Picture         =   "FrmReportes.frx":0018
+         Stretch         =   -1  'True
+         Top             =   1080
+         Width           =   735
+      End
+      Begin VB.Image img1 
+         Height          =   480
+         Left            =   2280
+         Picture         =   "FrmReportes.frx":0322
+         Stretch         =   -1  'True
+         Top             =   1200
+         Width           =   495
+      End
+   End
+   Begin VB.ComboBox CmbMoneda 
+      Height          =   315
+      ItemData        =   "FrmReportes.frx":062C
+      Left            =   4800
+      List            =   "FrmReportes.frx":0636
+      TabIndex        =   29
+      Text            =   "Córdobas"
+      Top             =   2760
+      Visible         =   0   'False
+      Width           =   1935
+   End
+   Begin VB.Frame Frame4 
+      BackColor       =   &H00E0E0E0&
+      Height          =   1455
+      Left            =   3240
+      TabIndex        =   20
+      Top             =   1080
+      Visible         =   0   'False
+      Width           =   4575
+      Begin VB.ComboBox CmbNivel 
+         Height          =   315
+         Left            =   1320
+         TabIndex        =   32
+         Text            =   "0"
+         Top             =   960
+         Width           =   615
+      End
+      Begin VB.ComboBox CmbFin 
+         Height          =   315
+         ItemData        =   "FrmReportes.frx":064D
+         Left            =   1320
+         List            =   "FrmReportes.frx":0675
+         TabIndex        =   28
+         Text            =   "1"
+         Top             =   600
+         Width           =   615
+      End
+      Begin VB.ComboBox CmbIni 
+         Height          =   315
+         ItemData        =   "FrmReportes.frx":06A0
+         Left            =   1320
+         List            =   "FrmReportes.frx":06C8
+         TabIndex        =   27
+         Text            =   "1"
+         Top             =   240
+         Width           =   615
+      End
+      Begin VB.Frame Frame5 
+         BackColor       =   &H00E0E0E0&
+         Height          =   735
+         Left            =   2040
+         TabIndex        =   23
+         Top             =   120
+         Width           =   2415
+         Begin VB.OptionButton Option8 
+            BackColor       =   &H00E0E0E0&
+            Caption         =   "2000"
+            Height          =   255
+            Left            =   120
+            TabIndex        =   26
+            Top             =   240
+            Value           =   -1  'True
+            Width           =   735
+         End
+         Begin VB.OptionButton Option7 
+            BackColor       =   &H00E0E0E0&
+            Caption         =   "2000"
+            Height          =   255
+            Left            =   840
+            TabIndex        =   25
+            Top             =   240
+            Width           =   735
+         End
+         Begin VB.OptionButton Option6 
+            BackColor       =   &H00E0E0E0&
+            Caption         =   "2000"
+            Height          =   255
+            Left            =   1560
+            TabIndex        =   24
+            Top             =   240
+            Width           =   735
+         End
+      End
+      Begin VB.Label Label6 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "Nivel"
+         Height          =   255
+         Left            =   720
+         TabIndex        =   31
+         Top             =   960
+         Width           =   615
+      End
+      Begin VB.Label Label8 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Periodo Desde:"
+         Height          =   255
+         Left            =   120
+         TabIndex        =   22
+         Top             =   240
+         Width           =   1095
+      End
+      Begin VB.Label Label7 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Periodo Hasta:"
+         Height          =   255
+         Left            =   120
+         TabIndex        =   21
+         Top             =   600
+         Width           =   1095
+      End
+   End
+   Begin VB.Frame Frame3 
+      BackColor       =   &H00E0E0E0&
+      Height          =   855
+      Left            =   3480
+      TabIndex        =   17
+      Top             =   1440
+      Visible         =   0   'False
+      Width           =   3855
+      Begin VB.OptionButton Option5 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "Cuentas de Mayor"
+         Height          =   255
+         Left            =   1680
+         TabIndex        =   19
+         Top             =   360
+         Width           =   1935
+      End
+      Begin VB.OptionButton Option4 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "Por Codigo"
+         Height          =   255
+         Left            =   240
+         TabIndex        =   18
+         Top             =   360
+         Value           =   -1  'True
+         Width           =   1215
+      End
+   End
+   Begin VB.TextBox TxtTransaccion 
+      Height          =   285
+      Left            =   4920
+      TabIndex        =   16
+      Top             =   2160
+      Visible         =   0   'False
+      Width           =   735
+   End
+   Begin VB.Frame Frame2 
+      BackColor       =   &H00E0E0E0&
+      Height          =   735
+      Left            =   3480
+      TabIndex        =   11
+      Top             =   960
+      Visible         =   0   'False
+      Width           =   3855
+      Begin VB.OptionButton Option3 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "2005"
+         Height          =   255
+         Left            =   2640
+         TabIndex        =   14
+         Top             =   240
+         Width           =   975
+      End
+      Begin VB.OptionButton Option2 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "2004"
+         Height          =   255
+         Left            =   1440
+         TabIndex        =   13
+         Top             =   240
+         Width           =   975
+      End
+      Begin VB.OptionButton Option1 
+         BackColor       =   &H00E0E0E0&
+         Caption         =   "2003"
+         Height          =   255
+         Left            =   120
+         TabIndex        =   12
+         Top             =   240
+         Value           =   -1  'True
+         Width           =   855
+      End
+   End
+   Begin SmartButtonProject.SmartButton CmdVerReporte 
+      Height          =   855
+      Left            =   600
+      TabIndex        =   7
+      Top             =   3360
+      Width           =   1215
+      _ExtentX        =   2143
+      _ExtentY        =   1508
+      ForeColor       =   8388608
+      Caption         =   "Ver Reporte"
+      Picture         =   "FrmReportes.frx":06F3
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin vbskfree.Skinner Skinner1 
+      Left            =   3360
+      Top             =   3480
+      _ExtentX        =   1270
+      _ExtentY        =   1270
+      CloseButtonToolTipText=   "Cerrar"
+      MinButtonToolTipText=   "Minimizar"
+      MaxButtonToolTipText=   "Maximizar"
+      RestoreButtonToolTipText=   "Restaurar"
+   End
+   Begin VB.Frame Frame1 
+      BackColor       =   &H00E0E0E0&
+      Height          =   735
+      Left            =   3480
+      TabIndex        =   1
+      Top             =   960
+      Width           =   3855
+      Begin MSComCtl2.DTPicker DTFecha2 
+         Height          =   290
+         Left            =   2520
+         TabIndex        =   5
+         Top             =   240
+         Width           =   1215
+         _ExtentX        =   2143
+         _ExtentY        =   503
+         _Version        =   393216
+         Format          =   58982401
+         CurrentDate     =   37837
+      End
+      Begin MSComCtl2.DTPicker DTFecha1 
+         Height          =   285
+         Left            =   720
+         TabIndex        =   3
+         Top             =   240
+         Width           =   1335
+         _ExtentX        =   2355
+         _ExtentY        =   503
+         _Version        =   393216
+         Format          =   58982401
+         CurrentDate     =   37837
+      End
+      Begin VB.Label Label5 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Fin"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   2160
+         TabIndex        =   4
+         Top             =   240
+         Width           =   375
+      End
+      Begin VB.Label Label4 
+         BackStyle       =   0  'Transparent
+         Caption         =   "Inicio"
+         BeginProperty Font 
+            Name            =   "MS Sans Serif"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   700
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   255
+         Left            =   120
+         TabIndex        =   2
+         Top             =   240
+         Width           =   495
+      End
+   End
+   Begin VB.ListBox CmbReportes 
+      Height          =   2205
+      ItemData        =   "FrmReportes.frx":698D
+      Left            =   360
+      List            =   "FrmReportes.frx":698F
+      TabIndex        =   0
+      Top             =   840
+      Width           =   2535
+   End
+   Begin SmartButtonProject.SmartButton CmdSalir 
+      Height          =   855
+      Left            =   6120
+      TabIndex        =   9
+      Top             =   3480
+      Width           =   1215
+      _ExtentX        =   2143
+      _ExtentY        =   1508
+      Caption         =   "Salir"
+      Picture         =   "FrmReportes.frx":6991
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin VB.Label Label3 
+      BackColor       =   &H00E0E0E0&
+      Caption         =   "Tipo de Moneda:"
+      Height          =   255
+      Left            =   3360
+      TabIndex        =   30
+      Top             =   2760
+      Visible         =   0   'False
+      Width           =   1455
+   End
+   Begin VB.Label LblTransaccion 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Transaccion No."
+      Height          =   255
+      Left            =   3360
+      TabIndex        =   15
+      Top             =   2160
+      Width           =   1335
+   End
+   Begin VB.Label Label2 
+      BackStyle       =   0  'Transparent
+      Caption         =   "Codigo:"
+      Height          =   255
+      Left            =   3360
+      TabIndex        =   10
+      Top             =   1800
+      Width           =   975
+   End
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
+      Caption         =   "Reportes"
+      BeginProperty Font 
+         Name            =   "Times New Roman"
+         Size            =   36
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   -1  'True
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   735
+      Left            =   240
+      TabIndex        =   8
+      Top             =   0
+      Width           =   6375
+   End
+   Begin VB.Label LblTitulo 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
+      Caption         =   "Seleccione el Mes"
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   495
+      Left            =   3240
+      TabIndex        =   6
+      Top             =   720
+      Visible         =   0   'False
+      Width           =   3855
+   End
+End
+Attribute VB_Name = "FrmReportes"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+
+Option Explicit
+
+Dim Tape As New clsTape
+
+
+Private Sub CmbReportes_Click()
+Dim AÑO1 As String, AÑO2 As String, AÑO3 As String
+ Me.LblTransaccion.Visible = False
+ Me.TxtTransaccion.Visible = False
+ Me.Frame3.Visible = False
+ Select Case Me.CmbReportes.Text
+    Case "ESTRUCTURA DE CUENTAS"
+         Me.Frame2.Visible = False
+      Me.Frame1.Visible = False
+   Case "CONTROL DE BANCOS"
+             Me.Label2.Visible = True
+      Me.DBCodigo.Visible = True
+   Case "COMPROBANTE DE PAGO"
+       Me.LblTransaccion.Visible = True
+      Me.TxtTransaccion.Visible = True
+      Me.Label2.Visible = False
+      Me.DBCodigo.Visible = False
+   Case "LISTADO CUENTAS"
+         Me.Frame2.Visible = False
+      Me.Frame1.Visible = False
+   Case "TARJETA ACTIVO FIJO"
+      Me.Frame2.Visible = False
+      Me.Frame1.Visible = False
+   Case "TARJETA EMPLEADOS"
+     Me.Frame2.Visible = False
+     Me.Frame1.Visible = False
+   Case "GRUPOS DE CUENTAS"
+     Me.Frame2.Visible = False
+     Me.Frame1.Visible = False
+   Case "TASAS DE CAMBIO"
+      Me.Frame2.Visible = False
+      Me.Frame1.Visible = True
+   Case "LISTA DE USUARIOS"
+      Me.Frame2.Visible = False
+      Me.Frame1.Visible = False
+   Case "TARJETA CONTRATISTA"
+      Me.Frame2.Visible = False
+      Me.Frame1.Visible = False
+   Case "REGISTRO DE MOVIMIENTOS"
+      Me.Frame2.Visible = False
+      Me.DBCodigo.Visible = False
+  Case "AUXILIAR x GRUPO"
+      Me.DBCodigo.Visible = False
+      Me.Frame2.Visible = False
+   Case "TOTAL AUXILIAR DE CUENTAS"
+      Me.Label2.Visible = True
+      Me.DBCodigo.Visible = True
+      Me.Frame2.Visible = False
+   Case "AUXILIAR DE CUENTAS"
+      Me.Label2.Visible = True
+      Me.DBCodigo.Visible = True
+      Me.Frame2.Visible = False
+   Case "BALANZA DE COMPROBACION"
+      Me.Frame3.Visible = True
+      Me.Frame2.Visible = False
+      Me.Label3.Visible = True
+      Me.CmbMoneda.Visible = True
+   Case "PRESUPUESTO ANUAL"
+      Me.Label2.Visible = False
+         Me.DBCodigo.Visible = False
+      Me.Frame2.Visible = True
+    Me.LblTitulo.Caption = "Seleccione el Periodo"
+      Me.DtaConsulta.RecordSource = "SELECT Periodos.Periodo, Periodos.FechaPeriodo, Periodos.NumeroTabla From Periodos Where (((Periodos.Periodo) = 1) And ((Periodos.NumeroTabla) = 1 Or (Periodos.NumeroTabla) = 2 Or (Periodos.NumeroTabla) = 3))"
+      Me.DtaConsulta.Refresh
+      Do While Not DtaConsulta.Recordset.EOF
+       If AÑO1 = "" Then
+        AÑO1 = Year(DtaConsulta.Recordset("FechaPeriodo"))
+        Me.Option1.Caption = AÑO1
+       ElseIf AÑO2 = "" Then
+        AÑO2 = Year(DtaConsulta.Recordset("FechaPeriodo"))
+        Me.Option2.Caption = AÑO2
+       Else
+         AÑO3 = Year(DtaConsulta.Recordset("FechaPeriodo"))
+         Me.Option3.Caption = AÑO3
+       End If
+        
+        Me.DtaConsulta.Recordset.MoveNext
+      Loop
+   Case "BALANCE GENERAL"
+   
+      Me.DtaConsulta.RecordSource = "SELECT Periodos.Periodo, Periodos.FechaPeriodo, Periodos.NumeroTabla From Periodos Where (((Periodos.Periodo) = 1) And ((Periodos.NumeroTabla) = 1 Or (Periodos.NumeroTabla) = 2 Or (Periodos.NumeroTabla) = 3))"
+      Me.DtaConsulta.Refresh
+      Do While Not DtaConsulta.Recordset.EOF
+       If AÑO1 = "" Then
+        AÑO1 = Year(DtaConsulta.Recordset("FechaPeriodo"))
+        Me.Option8.Caption = AÑO1
+       ElseIf AÑO2 = "" Then
+        AÑO2 = Year(DtaConsulta.Recordset("FechaPeriodo"))
+        Me.Option7.Caption = AÑO2
+       Else
+         AÑO3 = Year(DtaConsulta.Recordset("FechaPeriodo"))
+         Me.Option6.Caption = AÑO3
+       End If
+        
+        Me.DtaConsulta.Recordset.MoveNext
+      Loop
+   
+ End Select
+
+End Sub
+
+Private Sub CmdSalir_Click()
+Unload Me
+End Sub
+
+
+Private Sub CmdVerReporte_Click()
+Dim Fechas1 As String, Fechas2 As String
+'On Error GoTo TipoErrs
+Me.Frame6.Visible = True
+Me.CmdVerReporte.Enabled = False
+Me.CmdSalir.Enabled = False
+SaldoIni = 0
+SaldoFin = 0
+Total1 = 0
+TotalCuenta = 0
+
+FechaIni = Me.DTFecha1.Value
+FechaFin = Me.DTFecha2.Value
+
+Select Case Me.CmbReportes.Text
+Case "ESTRUCTURA DE CUENTAS"
+
+    Me.DtaReportes.Refresh
+    Do While Not Me.DtaReportes.Recordset.EOF
+     Me.DtaReportes.Recordset.Delete
+     Me.DtaReportes.Recordset.MoveNext
+    Loop
+  EstructuraCatalogo ("Catalogo")
+    Me.DtaReportes.Refresh
+    ArepCatalogo.Logo.Picture = LoadPicture(RutaLogo)
+    ArepCatalogo.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+    ArepCatalogo.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepCatalogo.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    ArepCatalogo.LblImpreso = Format(Now, "dd/mm/yyyy")
+
+    ArepCatalogo.DataControl1.ConnectionString = ConexionReporte
+    
+    ArepCatalogo.Show 1
+
+
+Case "ESTADO DE RESULTADO"
+    NumeroPeriodo1 = Me.CmbIni.Text
+    NumeroPeriodo2 = Me.CmbFin.Text
+    
+    If Me.Option8 = True Then
+     NumeroTabla = 1
+    ElseIf Me.Option7 = True Then
+      NumeroTabla = 2
+    ElseIf Me.Option6 = True Then
+      NumeroTabla = 2
+    End If
+    
+      Me.DtaConsulta.RecordSource = "SELECT Periodos.Periodo, Periodos.FechaPeriodo, Periodos.NumeroTabla From Periodos WHERE (((Periodos.Periodo) Between " & NumeroPeriodo1 & " And " & NumeroPeriodo2 & ") AND ((Periodos.NumeroTabla)=" & NumeroTabla & "))"
+      Me.DtaConsulta.Refresh
+       Me.DtaConsulta.Recordset.MoveLast
+       i = Me.DtaConsulta.Recordset.RecordCount
+       Me.DtaConsulta.Recordset.MoveFirst
+      Do While Not DtaConsulta.Recordset.EOF
+
+
+        If i = 1 Then
+          FechaIni = "01/" & Month(Me.DtaConsulta.Recordset("FechaPeriodo")) & "/" & Year(Me.DtaConsulta.Recordset("FechaPeriodo"))
+          NumFecha1 = FechaIni
+          FechaFin = Me.DtaConsulta.Recordset("FechaPeriodo")
+          NumFecha2 = Me.DtaConsulta.Recordset("FechaPeriodo")
+        Else
+
+         If NumeroPeriodo1 = Me.DtaConsulta.Recordset("Periodo") Then
+          FechaIni = "01/" & Month(Me.DtaConsulta.Recordset("FechaPeriodo")) & "/" & Year(Me.DtaConsulta.Recordset("FechaPeriodo"))
+          NumFecha1 = FechaIni
+         ElseIf NumeroPeriodo2 = Me.DtaConsulta.Recordset("Periodo") Then
+          FechaFin = Me.DtaConsulta.Recordset("FechaPeriodo")
+          NumFecha2 = Me.DtaConsulta.Recordset("FechaPeriodo")
+         End If
+        End If
+        Me.DtaConsulta.Recordset.MoveNext
+      Loop
+    
+    
+    
+    Me.DtaReportes.Refresh
+    Do While Not Me.DtaReportes.Recordset.EOF
+     Me.DtaReportes.Recordset.Delete
+     Me.DtaReportes.Recordset.MoveNext
+    Loop
+    CreaEstructura ("Resultado")
+    FrmReportes.DtaReportes.Recordset.AddNew
+       FrmReportes.DtaReportes.Recordset("Descripcion") = " Total Costos y Gastos"
+       FrmReportes.DtaReportes.Recordset("KeyGrupo") = "CG"
+       FrmReportes.DtaReportes.Recordset("Nivel") = 1
+    FrmReportes.DtaReportes.Recordset.Update
+    FrmReportes.DtaReportes.Recordset.AddNew
+       FrmReportes.DtaReportes.Recordset("Descripcion") = " Resultado Periodo"
+       FrmReportes.DtaReportes.Recordset("KeyGrupo") = "RP"
+       FrmReportes.DtaReportes.Recordset("Nivel") = 1
+    FrmReportes.DtaReportes.Recordset.Update
+    SaldoReportes ("Resultado")
+    SaldoReportes ("UtilidadResultado")
+    If Me.CmbNivel.Text = 0 Then
+     EliminaRegistroCero ("Resultado")
+    Else
+     EliminaRegistroCero ("Nivel")
+    End If
+
+    Me.DtaReportes.Refresh
+    ArepResultado.LblMoneda.Caption = "Expresado en " & Me.CmbMoneda.Text
+    ArepResultado.Logo.Picture = LoadPicture(RutaLogo)
+    ArepResultado.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+    ArepResultado.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepResultado.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    ArepResultado.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+    ArepResultado.LblFechaFin = FechaFin
+
+    ArepResultado.LblFechaIni = FechaIni
+    ArepResultado.DataControl1.ConnectionString = ConexionReporte
+    
+    ArepResultado.Show 1
+
+
+
+Case "BALANCE GENERAL"
+
+
+ 
+    NumeroPeriodo1 = Me.CmbIni.Text
+    NumeroPeriodo2 = Me.CmbFin.Text
+    
+    If Me.Option8 = True Then
+     NumeroTabla = 1
+    ElseIf Me.Option7 = True Then
+      NumeroTabla = 2
+    ElseIf Me.Option6 = True Then
+      NumeroTabla = 2
+    End If
+    
+      Me.DtaConsulta.RecordSource = "SELECT Periodos.Periodo, Periodos.FechaPeriodo, Periodos.NumeroTabla From Periodos WHERE (((Periodos.Periodo) Between " & NumeroPeriodo1 & " And " & NumeroPeriodo2 & ") AND ((Periodos.NumeroTabla)=" & NumeroTabla & "))"
+      Me.DtaConsulta.Refresh
+       Me.DtaConsulta.Recordset.MoveLast
+       i = Me.DtaConsulta.Recordset.RecordCount
+       Me.DtaConsulta.Recordset.MoveFirst
+      Do While Not DtaConsulta.Recordset.EOF
+
+
+        If i = 1 Then
+          FechaIni = "01/" & Month(Me.DtaConsulta.Recordset("FechaPeriodo")) & "/" & Year(Me.DtaConsulta.Recordset("FechaPeriodo"))
+          NumFecha1 = FechaIni
+          FechaFin = Me.DtaConsulta.Recordset("FechaPeriodo")
+          NumFecha2 = Me.DtaConsulta.Recordset("FechaPeriodo")
+        Else
+
+         If NumeroPeriodo1 = Me.DtaConsulta.Recordset("Periodo") Then
+          FechaIni = "01/" & Month(Me.DtaConsulta.Recordset("FechaPeriodo")) & "/" & Year(Me.DtaConsulta.Recordset("FechaPeriodo"))
+          NumFecha1 = FechaIni
+         ElseIf NumeroPeriodo2 = Me.DtaConsulta.Recordset("Periodo") Then
+          FechaFin = Me.DtaConsulta.Recordset("FechaPeriodo")
+          NumFecha2 = Me.DtaConsulta.Recordset("FechaPeriodo")
+         End If
+        End If
+        Me.DtaConsulta.Recordset.MoveNext
+      Loop
+    
+    
+    
+    Me.DtaReportes.Refresh
+    Do While Not Me.DtaReportes.Recordset.EOF
+     Me.DtaReportes.Recordset.Delete
+     Me.DtaReportes.Recordset.MoveNext
+    Loop
+    CreaEstructura ("Balance")
+    FrmReportes.DtaReportes.Recordset.AddNew
+       FrmReportes.DtaReportes.Recordset("Descripcion") = " Total Pasivo Màs Capital"
+       FrmReportes.DtaReportes.Recordset("KeyGrupo") = "PC"
+    FrmReportes.DtaReportes.Recordset.Update
+
+    SaldoReportes ("Utilidad")
+    SaldoReportes ("Balance")
+    If Me.CmbNivel.Text = 0 Then
+     EliminaRegistroCero ("Balance")
+    Else
+     EliminaRegistroCero ("Nivel")
+    End If
+    
+    
+    
+    Me.DtaReportes.Refresh
+    ArepBalance.LblMoneda.Caption = "Expresado en " & Me.CmbMoneda.Text
+    ArepBalance.Logo.Picture = LoadPicture(RutaLogo)
+    ArepBalance.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+    ArepBalance.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepBalance.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    ArepBalance.LblFechaFin = FechaFin
+    ArepBalance.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+    ArepBalance.LblFechaIni = FechaIni
+    ArepBalance.DataControl1.ConnectionString = ConexionReporte
+    
+    ArepBalance.Show 1
+
+    
+    
+    
+    
+    
+    
+
+
+Case "BALANZA DE COMPROBACION"
+
+ If Option4.Value = True Then
+    Me.DtaReportes.Refresh
+    Do While Not Me.DtaReportes.Recordset.EOF
+     Me.DtaReportes.Recordset.Delete
+    Me.DtaReportes.Recordset.MoveNext
+    Loop
+
+    SaldoReportes ("BalanzaCodigo")
+    Me.DtaReportes.Refresh
+    ArepBalanza.LblMoneda.Caption = Me.CmbMoneda.Text
+    ArepBalanza.Logo.Picture = LoadPicture(RutaLogo)
+    ArepBalanza.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+    ArepBalanza.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepBalanza.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    ArepBalanza.LblFechaFin = Me.DTFecha2.Value
+    ArepBalanza.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+    ArepBalanza.LblFechaIni = Me.DTFecha1.Value
+    ArepBalanza.DataControl1.ConnectionString = ConexionReporte
+    ArepBalanza.Show 1
+
+    
+ ElseIf Option5.Value = True Then
+    Me.DtaReportes.Refresh
+    Do While Not Me.DtaReportes.Recordset.EOF
+     Me.DtaReportes.Recordset.Delete
+     Me.DtaReportes.Recordset.MoveNext
+    Loop
+    CreaEstructura ("Balanza")
+    SaldoReportes ("Balanza")
+    EliminaRegistroCero ("Balanza")
+    
+    Me.DtaConsulta.RecordSource = "SELECT Sum(Reportes.Debe1) AS SumaDebe1, Sum(Reportes.Haber1) AS SumaHaber1, Sum(Reportes.Debe2) AS SumaDebe2, Sum(Reportes.Haber2) AS SumaHaber2, Sum(Reportes.Debe3) AS SumaDebe3, Sum(Reportes.Haber3) AS SumaHaber3 From Reportes WHERE (((Reportes.Descripcion) Like '*Total*') AND ((Reportes.KeyGrupo)='A' Or (Reportes.KeyGrupo)='B' Or (Reportes.KeyGrupo)='C' Or (Reportes.KeyGrupo)='D' Or (Reportes.KeyGrupo)='G' Or (Reportes.KeyGrupo)='O'))"
+    Me.DtaConsulta.Refresh
+    If Not DtaConsulta.Recordset.EOF Then
+      ArepBalanza.LblDebe1 = Format(Me.DtaConsulta.Recordset("SumaDebe1"), "##,##0.00")
+      ArepBalanza.LblHaber1 = Format(Me.DtaConsulta.Recordset("SumaHaber1"), "##,##0.00")
+      ArepBalanza.LblDebe2 = Format(Me.DtaConsulta.Recordset("SumaDebe2"), "##,##0.00")
+      ArepBalanza.LblHaber2 = Format(Me.DtaConsulta.Recordset("SumaHaber2"), "##,##0.00")
+      ArepBalanza.LblDebe3 = Format(Me.DtaConsulta.Recordset("SumaDebe3"), "##,##0.00")
+      ArepBalanza.LblHaber3 = Format(Me.DtaConsulta.Recordset("SumaHaber3"), "##,##0.00")
+    
+    End If
+    Me.DtaReportes.Refresh
+    ArepBalanza.LblMoneda.Caption = Me.CmbMoneda.Text
+    ArepBalanza.Logo.Picture = LoadPicture(RutaLogo)
+    ArepBalanza.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+    ArepBalanza.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepBalanza.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    ArepBalanza.LblFechaFin = Me.DTFecha2.Value
+    ArepBalanza.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+    ArepBalanza.LblFechaIni = Me.DTFecha1.Value
+    ArepBalanza.DataControl1.ConnectionString = ConexionReporte
+    ArepBalanza.Field8.Visible = False
+    ArepBalanza.Field9.Visible = False
+    ArepBalanza.Field10.Visible = False
+    ArepBalanza.Field11.Visible = False
+    ArepBalanza.Field12.Visible = False
+    ArepBalanza.Field13.Visible = False
+    ArepBalanza.Show 1
+
+ End If
+    
+
+Case "AUXILIAR x GRUPO"
+    ArepTotalAuxiliarGrupo.LblFecha = Format(Now, "dd/mm/yyyy")
+    NumFecha1 = Me.DTFecha1.Value
+    NumFecha2 = Me.DTFecha2.Value
+    
+    
+    ArepTotalAuxiliarGrupo.LblRangoFecha = "Desde " & Me.DTFecha1.Value & " Hasta " & Me.DTFecha2.Value
+    ArepTotalAuxiliarGrupo.DataControl1.ConnectionString = ConexionReporte
+    
+    
+    
+    If Me.DBCodigo.Text = "" Then
+     DtaConsulta.RecordSource = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas"
+     DtaConsulta.Refresh
+     If DtaConsulta.Recordset.EOF Then
+      ArepTotalAuxiliarGrupo.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas, GrupoCuentas.CodGrupo, GrupoCuentas.DescripcionGrupo FROM GrupoCuentas INNER JOIN (Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas) ON GrupoCuentas.CodGrupo = Cuentas.CodGrupo GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas, GrupoCuentas.CodGrupo, GrupoCuentas.DescripcionGrupo ORDER BY GrupoCuentas.CodGrupo, Cuentas.CodCuentas"
+      'ArepTotalAuxiliarGrupo.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas"
+      ArepTotalAuxiliarGrupo.Field18.Visible = False
+      ArepTotalAuxiliarGrupo.Field19.Visible = False
+     Else
+     ArepTotalAuxiliarGrupo.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas, GrupoCuentas.CodGrupo, GrupoCuentas.DescripcionGrupo FROM GrupoCuentas INNER JOIN (Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas) ON GrupoCuentas.CodGrupo = Cuentas.CodGrupo WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas, GrupoCuentas.CodGrupo, GrupoCuentas.DescripcionGrupo ORDER BY  GrupoCuentas.CodGrupo,Cuentas.CodCuentas"
+     'ArepTotalAuxiliarGrupo.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas"
+    
+     End If
+     '"SELECT Transacciones.CodCuentas, Cuentas.DescripcionCuentas, Transacciones.NPeriodo, Transacciones.NTransaccion, Transacciones.NumeroMovimiento, Transacciones.VoucherNo, Transacciones.DescripcionMovimiento, Transacciones.Clave, Transacciones.TCambio, Transacciones.FacturaNo, Transacciones.ChequeNo, Transacciones.Fuente, Transacciones.FechaTransaccion, Cuentas.TipoCuenta, Transacciones.TCambio, TCambio*Debito AS Debito, TCambio*Credito AS Credito FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) ORDER BY Transacciones.CodCuentas, Transacciones.FechaTransaccion, Transacciones.NTransaccion"
+    Else
+     DtaConsulta.RecordSource = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas"
+     DtaConsulta.Refresh
+     If DtaConsulta.Recordset.EOF Then
+      ArepTotalAuxiliarGrupo.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas"
+      
+
+      ArepTotalAuxiliarGrupo.Field18.Visible = False
+      ArepTotalAuxiliarGrupo.Field19.Visible = False
+     Else
+     ArepTotalAuxiliarGrupo.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas Having (((Cuentas.CodCuentas) = '" & Me.DBCodigo.Text & "'))"
+     'ArepTotalAuxiliar.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas HAVING (((Cuentas.CodCuentas)='" & Me.DBCodigo.Text & "'))"
+     ArepTotalAuxiliarGrupo.LblCodigo.Caption = "Mis Code:" & Me.DBCodigo.Text
+     End If
+    End If
+    ArepTotalAuxiliarGrupo.Logo.Picture = LoadPicture(RutaLogo)
+    ArepTotalAuxiliarGrupo.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+    ArepTotalAuxiliarGrupo.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepTotalAuxiliarGrupo.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    'ArepTotalAuxiliarGrupo.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+    ArepTotalAuxiliarGrupo.Show 1
+ 
+ 
+ Case "TOTAL AUXILIAR DE CUENTAS"
+    ArepTotalAuxiliar.LblFecha = Format(Now, "dd/mm/yyyy")
+    NumFecha1 = Me.DTFecha1.Value
+    NumFecha2 = Me.DTFecha2.Value
+    
+    
+    ArepTotalAuxiliar.LblRangoFecha = "Desde " & Me.DTFecha1.Value & " Hasta " & Me.DTFecha2.Value
+    ArepTotalAuxiliar.DataControl1.ConnectionString = ConexionReporte
+    
+    
+    
+    If Me.DBCodigo.Text = "" Then
+     DtaConsulta.RecordSource = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas"
+     DtaConsulta.Refresh
+     If DtaConsulta.Recordset.EOF Then
+      ArepTotalAuxiliar.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas"
+      ArepTotalAuxiliar.Field18.Visible = False
+      ArepTotalAuxiliar.Field19.Visible = False
+     Else
+     ArepTotalAuxiliar.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas"
+     'ArepTotalAuxiliar.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas"
+     End If
+     '"SELECT Transacciones.CodCuentas, Cuentas.DescripcionCuentas, Transacciones.NPeriodo, Transacciones.NTransaccion, Transacciones.NumeroMovimiento, Transacciones.VoucherNo, Transacciones.DescripcionMovimiento, Transacciones.Clave, Transacciones.TCambio, Transacciones.FacturaNo, Transacciones.ChequeNo, Transacciones.Fuente, Transacciones.FechaTransaccion, Cuentas.TipoCuenta, Transacciones.TCambio, TCambio*Debito AS Debito, TCambio*Credito AS Credito FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) ORDER BY Transacciones.CodCuentas, Transacciones.FechaTransaccion, Transacciones.NTransaccion"
+    Else
+     DtaConsulta.RecordSource = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas"
+     DtaConsulta.Refresh
+     If DtaConsulta.Recordset.EOF Then
+      ArepTotalAuxiliar.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas"
+      
+
+      ArepTotalAuxiliar.Field18.Visible = False
+      ArepTotalAuxiliar.Field19.Visible = False
+     Else
+     ArepTotalAuxiliar.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas Having (((Cuentas.CodCuentas) = '" & Me.DBCodigo.Text & "'))"
+     'ArepTotalAuxiliar.DataControl1.Source = "SELECT Cuentas.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito, Sum(Debito*TCambio)-Sum(Credito*TCambio) AS Total, Cuentas.DescripcionCuentas FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas GROUP BY Cuentas.CodCuentas, Cuentas.DescripcionCuentas HAVING (((Cuentas.CodCuentas)='" & Me.DBCodigo.Text & "'))"
+     ArepTotalAuxiliar.LblCodigo.Caption = "Codigo Cuenta:" & Me.DBCodigo.Text
+     End If
+    End If
+    ArepTotalAuxiliar.Logo.Picture = LoadPicture(RutaLogo)
+    ArepTotalAuxiliar.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+    ArepTotalAuxiliar.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepTotalAuxiliar.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    'ArepTotalAuxiliar.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+    ArepTotalAuxiliar.Show 1
+
+
+  Case "COMPROBANTE DE PAGO"
+  '///////imprimo el reporte/////
+'///////imprimo el reporte/////
+ Debito = 0
+ Credito = 0
+ TotalDebito = 0
+ TotalCredito = 0
+      NumFecha1 = Me.DTFecha1.Value
+      NumFecha2 = Me.DTFecha2.Value
+      If Not Me.TxtTransaccion = "" Then
+       NMovimiento = Val(Me.TxtTransaccion.Text)
+       NumeroTransaccion = NMovimiento
+       Me.DtaConsulta.RecordSource = "SELECT Transacciones.ChequeNo,Transacciones.FechaTransaccion, Transacciones.CodCuentas, Transacciones.NTransaccion, Transacciones.NumeroMovimiento, TCambio*Debito AS MDebito, TCambio*Credito AS MCredito, Transacciones.TCambio, Transacciones.Debito, Transacciones.Credito From Transacciones WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ") AND ((Transacciones.NumeroMovimiento)=" & NMovimiento & "))"
+       Me.DtaConsulta.Refresh
+      Else
+       Exit Sub
+      End If
+      Do While Not Me.DtaConsulta.Recordset.EOF
+      If Not IsNull(Me.DtaConsulta.Recordset("Debito")) Then
+       Debito = Me.DtaConsulta.Recordset("Debito")
+      End If
+      If Not IsNull(Me.DtaConsulta.Recordset("Credito")) Then
+       Credito = Me.DtaConsulta.Recordset("Credito")
+      End If
+
+      
+       TotalDebito = TotalDebito + Debito
+       TotalCredito = TotalCredito + Credito
+       Me.DtaConsulta.Recordset.MoveNext
+      Loop
+  
+       Me.DtaConsulta.RecordSource = "SELECT Transacciones.ChequeNo, Transacciones.FechaTransaccion, Transacciones.CodCuentas, Transacciones.NTransaccion, Transacciones.NumeroMovimiento, TCambio*Debito AS MDebito, TCambio*Credito AS MCredito, Transacciones.TCambio, Transacciones.Debito, Transacciones.Credito, Transacciones.VoucherNo, Transacciones.ChequeNo From Transacciones WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ") AND ((Transacciones.NumeroMovimiento)=" & NMovimiento & ") AND ((Transacciones.ChequeNo) Is Not Null))"
+       Me.DtaConsulta.Refresh
+       If Not DtaConsulta.Recordset.EOF Then
+        If Not IsNull(Me.DtaConsulta.Recordset("ChequeNo")) Then
+          CkNo = Me.DtaConsulta.Recordset("ChequeNo")
+        End If
+       End If
+ ArepCheque.DtaCheque.ConnectionString = ConexionReporte
+ 'ArepCheque.LblMemo = FrmCheque.TxtMemo
+ ArepCheque.LblChequeNo.Caption = CkNo
+ ArepCheque.Field15.Visible = False
+ ArepCheque.DtaCheque.Source = "SELECT Transacciones.CodCuentas, Transacciones.NombreCuenta, Transacciones.VoucherNo, Transacciones.DescripcionMovimiento, Transacciones.FacturaNo, Transacciones.ChequeNo, Transacciones.Clave, Transacciones.TCambio,  Transacciones.Debito, Transacciones.Credito, Transacciones.FechaTransaccion, Transacciones.NPeriodo, Transacciones.NTransaccion, Transacciones.Fuente, Transacciones.FechaTasas, Transacciones.NumeroMovimiento, Periodos.Periodo FROM Periodos INNER JOIN Transacciones ON Periodos.NPeriodo = Transacciones.NPeriodo WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ") AND ((Transacciones.NumeroMovimiento)=" & NumeroTransaccion & ")) ORDER BY Transacciones.NTransaccion"
+ ArepCheque.Show 1
+
+   Case "PRESUPUESTO ANUAL"
+   If Me.Option1.Value = True Then
+'///////Busco fecha Inicial///////////////////
+    DtaConsulta.RecordSource = "SELECT Periodos.Periodo, Periodos.FechaPeriodo, Periodos.NumeroTabla From Periodos Where (((Periodos.Periodo) = 1) And ((Periodos.NumeroTabla) = 1))"
+    Me.DtaConsulta.Refresh
+    If Not DtaConsulta.Recordset.EOF Then
+      Fecha1 = Me.DtaConsulta.Recordset("FechaPeriodo")
+      Tabla = 1
+    End If
+'////////////Busco fecha final para la Opcion 1//////////////////
+    DtaConsulta.RecordSource = "SELECT Periodos.Periodo, Periodos.FechaPeriodo, Periodos.NumeroTabla From Periodos Where (((Periodos.Periodo) = 12) And ((Periodos.NumeroTabla) = 1))"
+    Me.DtaConsulta.Refresh
+    If Not DtaConsulta.Recordset.EOF Then
+      Fecha2 = Me.DtaConsulta.Recordset("FechaPeriodo")
+    End If
+  End If
+  
+    If Me.Option2.Value = True Then
+'///////Busco fecha Inicial///////////////////
+    DtaConsulta.RecordSource = "SELECT Periodos.Periodo, Periodos.FechaPeriodo, Periodos.NumeroTabla From Periodos Where (((Periodos.Periodo) = 1) And ((Periodos.NumeroTabla) = 2))"
+    Me.DtaConsulta.Refresh
+    If Not DtaConsulta.Recordset.EOF Then
+      Fecha1 = Me.DtaConsulta.Recordset("FechaPeriodo")
+      Tabla = 2
+    End If
+'////////////Busco fecha final para la Opcion 1//////////////////
+    DtaConsulta.RecordSource = "SELECT Periodos.Periodo, Periodos.FechaPeriodo, Periodos.NumeroTabla From Periodos Where (((Periodos.Periodo) = 12) And ((Periodos.NumeroTabla) = 2))"
+    Me.DtaConsulta.Refresh
+    If Not DtaConsulta.Recordset.EOF Then
+      Fecha2 = Me.DtaConsulta.Recordset("FechaPeriodo")
+    End If
+   End If
+   
+    If Me.Option3.Value = True Then
+'///////Busco fecha Inicial///////////////////
+    DtaConsulta.RecordSource = "SELECT Periodos.Periodo, Periodos.FechaPeriodo, Periodos.NumeroTabla From Periodos Where (((Periodos.Periodo) = 1) And ((Periodos.NumeroTabla) = 3))"
+    Me.DtaConsulta.Refresh
+    If Not DtaConsulta.Recordset.EOF Then
+      Fecha1 = Me.DtaConsulta.Recordset("FechaPeriodo")
+      Tabla = 3
+    End If
+'////////////Busco fecha final para la Opcion 1//////////////////
+    DtaConsulta.RecordSource = "SELECT Periodos.Periodo, Periodos.FechaPeriodo, Periodos.NumeroTabla From Periodos Where (((Periodos.Periodo) = 12) And ((Periodos.NumeroTabla) = 3))"
+    Me.DtaConsulta.Refresh
+    If Not DtaConsulta.Recordset.EOF Then
+      Fecha2 = Me.DtaConsulta.Recordset("FechaPeriodo")
+    End If
+ End If
+    NumFecha1 = Fecha1
+    NumFecha2 = Fecha2
+    
+
+  
+'     ArepPresupuesto.DataControl1.ConnectionString = ConexionReporte
+'     ArepPresupuesto.Label13.Caption = "PRESUPUESTO PARA EL AÑO " & Year(Fecha1)
+'     'ArepPresupuesto.DataControl1.Source = "SELECT PresupuestoAnual.NumeroTabla, PresupuestoAnual.CodigoCuenta AS CodCuenta, Sum(PresupuestoAnual.MontoAnual) AS SumaDeMontoPresupuestado, Cuentas.DescripcionCuentas, GrupoCuentas.DescripcionGrupo, GrupoCuentas.CodGrupo FROM GrupoCuentas INNER JOIN (Cuentas INNER JOIN PresupuestoAnual ON Cuentas.CodCuentas = PresupuestoAnual.CodigoCuenta) ON GrupoCuentas.CodGrupo = Cuentas.CodGrupo GROUP BY PresupuestoAnual.NumeroTabla, PresupuestoAnual.CodigoCuenta, Cuentas.DescripcionCuentas, GrupoCuentas.DescripcionGrupo, GrupoCuentas.CodGrupo Having (((PresupuestoAnual.NumeroTabla) = " & Tabla & "))"
+
+'      ArepPresupuesto.Show 1
+ 
+     ArepPresupuesto.DataControl1.ConnectionString = ConexionReporte
+     ArepPresupuesto.Label13.Caption = "PRESUPUESTO PARA EL AÑO " & Year(Fecha1)
+     'ArepPresupuesto.DataControl1.Source = "SELECT Presupuesto.CodCuenta, Cuentas.DescripcionCuentas, Sum(Presupuesto.MontoPresupuestado) AS SumaDeMontoPresupuestado, GrupoCuentas.CodGrupo, GrupoCuentas.DescripcionGrupo FROM Periodos INNER JOIN (GrupoCuentas INNER JOIN (Cuentas INNER JOIN Presupuesto ON Cuentas.CodCuentas = Presupuesto.CodCuenta) ON GrupoCuentas.CodGrupo = Cuentas.CodGrupo) ON Periodos.NPeriodo = Presupuesto.NPeriodo WHERE (((Periodos.FechaPeriodo) Between " & NumFecha1 & " And " & NumFecha2 & ")) GROUP BY Presupuesto.CodCuenta, Cuentas.DescripcionCuentas, GrupoCuentas.CodGrupo, GrupoCuentas.DescripcionGrupo ORDER BY Presupuesto.CodCuenta"
+'     ArepPresupuesto.DataControl1.Source = "SELECT PresupuestoAnual.NumeroTabla, PresupuestoAnual.CodigoCuenta AS CodCuenta, Sum(PresupuestoAnual.MontoAnual) AS SumaDeMontoPresupuestado, Cuentas.DescripcionCuentas, GrupoCuentas.DescripcionGrupo, GrupoCuentas.CodGrupo FROM GrupoCuentas INNER JOIN (Cuentas INNER JOIN PresupuestoAnual ON Cuentas.CodCuentas = PresupuestoAnual.CodigoCuenta) ON GrupoCuentas.CodGrupo = Cuentas.CodGrupo GROUP BY PresupuestoAnual.NumeroTabla, PresupuestoAnual.CodigoCuenta, Cuentas.DescripcionCuentas, GrupoCuentas.DescripcionGrupo, GrupoCuentas.CodGrupo Having (((PresupuestoAnual.NumeroTabla) = " & Tabla & "))"
+      ArepPresupuesto.DataControl1.Source = "SELECT PresupuestoAnual.NumeroTabla, PresupuestoAnual.CodigoCuenta AS CodCuenta, Sum(PresupuestoAnual.MontoAnual) AS SumaDeMontoPresupuestado, Cuentas.DescripcionCuentas, GrupoCuentas.DescripcionGrupo, GrupoCuentas.CodGrupo FROM GrupoCuentas INNER JOIN (Cuentas INNER JOIN PresupuestoAnual ON Cuentas.CodCuentas = PresupuestoAnual.CodigoCuenta) ON GrupoCuentas.CodGrupo = Cuentas.CodGrupo GROUP BY PresupuestoAnual.NumeroTabla, PresupuestoAnual.CodigoCuenta, Cuentas.DescripcionCuentas, GrupoCuentas.DescripcionGrupo, GrupoCuentas.CodGrupo Having (((PresupuestoAnual.NumeroTabla) = " & Tabla & ")) ORDER BY GrupoCuentas.CodGrupo,PresupuestoAnual.CodigoCuenta"
+     ArepPresupuesto.Logo.Picture = LoadPicture(RutaLogo)
+     ArepPresupuesto.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+     ArepPresupuesto.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+     ArepPresupuesto.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+     ArepPresupuesto.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+     ArepPresupuesto.Show 1
+     
+     
+  Case "AUXILIAR DE CUENTAS"
+    ArepAuxiliar.LblFecha = Format(Now, "dd/mm/yyyy")
+    NumFecha1 = Me.DTFecha1.Value
+    NumFecha2 = Me.DTFecha2.Value
+    
+    
+    ArepAuxiliar.LblRangoFecha = "Desde " & Me.DTFecha1.Value & " Hasta " & Me.DTFecha2.Value
+    ArepAuxiliar.DataControl1.ConnectionString = ConexionReporte
+    
+    
+    
+    If Me.DBCodigo.Text = "" Then
+     ArepAuxiliar.DataControl1.Source = "SELECT Transacciones.CodCuentas, Cuentas.DescripcionCuentas, Transacciones.NPeriodo, Transacciones.NTransaccion, Transacciones.NumeroMovimiento, Transacciones.VoucherNo, Transacciones.DescripcionMovimiento, Transacciones.Clave, Transacciones.TCambio, Transacciones.FacturaNo, Transacciones.ChequeNo, Transacciones.Fuente, Transacciones.FechaTransaccion, Cuentas.TipoCuenta, Transacciones.TCambio, TCambio*Debito AS Debito, TCambio*Credito AS Credito FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) ORDER BY Transacciones.CodCuentas, Transacciones.FechaTransaccion, Transacciones.NTransaccion"
+    Else
+     ArepAuxiliar.DataControl1.Source = "SELECT Transacciones.CodCuentas, Cuentas.DescripcionCuentas, Transacciones.NPeriodo, Transacciones.NTransaccion, Transacciones.NumeroMovimiento, Transacciones.VoucherNo, Transacciones.DescripcionMovimiento, Transacciones.Clave, Transacciones.TCambio, Transacciones.FacturaNo, Transacciones.ChequeNo, Transacciones.Fuente, Transacciones.FechaTransaccion, Cuentas.TipoCuenta, Transacciones.TCambio, TCambio*Debito AS Debito, TCambio*Credito AS Credito FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.CodCuentas)='" & Me.DBCodigo.Text & "') AND ((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ")) ORDER BY Transacciones.CodCuentas, Transacciones.FechaTransaccion, Transacciones.NTransaccion"
+     ArepAuxiliar.LblCodigo.Caption = "Mis Code:" & Me.DBCodigo.Text
+    End If
+    
+    ArepAuxiliar.Logo.Picture = LoadPicture(RutaLogo)
+    ArepAuxiliar.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+    ArepAuxiliar.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepAuxiliar.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    ArepAuxiliar.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+    
+    ArepAuxiliar.Show 1
+    
+
+  Case "REGISTRO DE MOVIMIENTOS"
+    ArepTransacciones.LblFecha = Format(Now, "dd/mm/yyyy")
+    ArepTransacciones.LblRangoFecha = "Desde " & Me.DTFecha1.Value & " Hasta " & Me.DTFecha2.Value
+    NumFecha1 = Me.DTFecha1.Value
+    NumFecha2 = Me.DTFecha2.Value
+    ArepTransacciones.DataControl1.ConnectionString = ConexionReporte
+    ArepTransacciones.DataControl1.Source = "SELECT Transacciones.CodCuentas, Cuentas.DescripcionCuentas, Transacciones.NPeriodo, Transacciones.NTransaccion, Transacciones.NumeroMovimiento, Transacciones.VoucherNo, Transacciones.DescripcionMovimiento, Transacciones.Clave, Transacciones.TCambio,  Transacciones.Debito, Transacciones.Credito, Transacciones.FacturaNo, Transacciones.ChequeNo, Transacciones.Fuente, Transacciones.FechaTransaccion FROM Cuentas INNER JOIN Transacciones ON Cuentas.CodCuentas = Transacciones.CodCuentas WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & "  And " & NumFecha2 & " )) ORDER BY Transacciones.NTransaccion;"
+    ArepTransacciones.Logo.Picture = LoadPicture(RutaLogo)
+    ArepTransacciones.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+    ArepTransacciones.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepTransacciones.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    ArepTransacciones.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+    ArepTransacciones.Show 1
+
+   
+
+   Case "TARJETA CONTRATISTA"
+    ArepContratista.DataControl1.ConnectionString = ConexionReporte
+    'ArepContratista.DataControl1.Source = "SELECT Usuarios.CodUsuario, Usuarios.NombreUsuario, Usuarios.Nivel FROM Usuarios"
+
+    ArepContratista.Logo.Picture = LoadPicture(RutaLogo)
+    ArepContratista.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+    ArepContratista.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepContratista.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    ArepContratista.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+    ArepContratista.Show 1
+
+
+   Case "LISTA DE USUARIOS"
+    ArepUsuarios.DataControl1.ConnectionString = ConexionReporte
+    ArepUsuarios.DataControl1.Source = "SELECT Usuarios.CodUsuario, Usuarios.NombreUsuario, Usuarios.Nivel FROM Usuarios"
+
+    ArepUsuarios.Logo.Picture = LoadPicture(RutaLogo)
+    ArepUsuarios.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+    ArepUsuarios.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepUsuarios.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    ArepUsuarios.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+    ArepUsuarios.Show 1
+
+
+   Case "TASAS DE CAMBIO"
+    NumFecha1 = Me.DTFecha1.Value
+    NumFecha2 = Me.DTFecha2.Value
+    ArepTasaCambio.DataControl1.ConnectionString = ConexionReporte
+    ArepTasaCambio.DataControl1.Source = "SELECT Tasas.FechaTasas, Tasas.MontoCordobas, Tasas.MontoLibras From Tasas WHERE (((Tasas.FechaTasas) Between " & NumFecha1 & " And " & NumFecha2 & ")) ORDER BY Tasas.FechaTasas;"
+    ArepTasaCambio.Logo.Picture = LoadPicture(RutaLogo)
+    ArepTasaCambio.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+    ArepTasaCambio.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepTasaCambio.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    ArepTasaCambio.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+    ArepTasaCambio.Show 1
+
+   Case "GRUPOS DE CUENTAS"
+    ArepGrupos.DataControl1.ConnectionString = ConexionReporte
+    ArepGrupos.DataControl1.Source = "SELECT GrupoCuentas.CodGrupo, GrupoCuentas.DescripcionGrupo FROM GrupoCuentas"
+    ArepGrupos.Logo.Picture = LoadPicture(RutaLogo)
+    ArepGrupos.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+     ArepGrupos.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+    ArepGrupos.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+    ArepGrupos.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+    ArepGrupos.Show 1
+   
+   Case "TARJETA EMPLEADOS"
+     ArepEncargado.DataControl1.ConnectionString = ConexionReporte
+      ArepEncargado.DataControl1.Source = "SELECT Encargado.CodEncargado, Encargado.NombreEncargado, Encargado.Direccion, Encargado.Telefono, Encargado.Cargo, Encargado.Email, Encargado.CP, Encargado.Fax, Encargado.FechaContratacion From Encargado"
+      ArepEncargado.Logo.Picture = LoadPicture(RutaLogo)
+      ArepEncargado.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+      ArepEncargado.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+      ArepEncargado.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+      ArepEncargado.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+      ArepEncargado.Show 1
+
+   Case "TARJETA ACTIVO FIJO"
+      ArepActivoFijo.DataControl1.ConnectionString = ConexionReporte
+      ArepActivoFijo.DataControl1.Source = "SELECT ActivoFijo.CodCuenta, ActivoFijo.Localizacion, ActivoFijo.NumeroMarbete, ActivoFijo.FechaCompra, ActivoFijo.FechaCompra, ActivoFijo.ValorOriginal, ActivoFijo.FechaUltimaDepre, ActivoFijo.ValorEstimadoMeses, ActivoFijo.ValorRescate, ActivoFijo.FechaBaja, ActivoFijo.DepreciacionAcumulada, ActivoFijo.DescripcionActivo, ActivoFijo.NumeroSerie, ActivoFijo.Marca, Encargado.NombreEncargado FROM Encargado INNER JOIN ActivoFijo ON Encargado.CodEncargado = ActivoFijo.CodEncargado"
+      ArepActivoFijo.Logo.Picture = LoadPicture(RutaLogo)
+      ArepActivoFijo.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+      ArepActivoFijo.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+      ArepActivoFijo.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+      ArepActivoFijo.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+      ArepActivoFijo.Show 1
+      
+  
+    Case "LISTADO CUENTAS"
+
+       ArepCuentas.DataControl1.ConnectionString = ConexionReporte
+       ArepCuentas.Logo.Picture = LoadPicture(RutaLogo)
+       ArepCuentas.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+       ArepCuentas.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+       ArepCuentas.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+       ArepCuentas.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+       ArepCuentas.Show 1
+
+
+    Case "CONTROL DE BANCOS"
+      
+      CodigoCuenta = Me.DBCodigo.Text
+     
+      
+       Me.DtaConsulta.RecordSource = "SELECT Periodos.NPeriodo, Periodos.NumeroTabla, Periodos.FechaPeriodo, Periodos.Periodo From Periodos WHERE (((Periodos.FechaPeriodo) Between " & NumFecha1 & " And " & NumFecha2 & "))"
+       'Me.DtaConsulta.RecordSource = "SELECT Transacciones.FechaTransaccion, Transacciones.VoucherNo, Transacciones.ChequeNo, Transacciones.DescripcionMovimiento, Transacciones.CodCuentas, Transacciones.Debito, Transacciones.Credito, 5000+[Transacciones]![Debito]-[Transacciones]![Credito] AS Balance, Transacciones.NPeriodo From Transacciones WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ") AND ((Transacciones.CodCuentas)='" & CodigoCuenta & "'))"
+       Me.DtaConsulta.Refresh
+       If Not DtaConsulta.Recordset.EOF Then
+         Periodo1 = Me.DtaConsulta.Recordset("NPeriodo")
+         Periodo1 = Periodo1 - 1
+        NumFecha1 = Me.DTFecha1.Value
+        NumFecha2 = Me.DTFecha2.Value
+'///////////////Busco el Acumulado de la cuenta hasta la ultima fecha Seleccionada////////////
+'///////////////////////////////////////////////////////////////////////////////////////////////
+         Me.DtaHistorial.RecordSource = "SELECT Transacciones.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito From Transacciones Where (((Transacciones.FechaTransaccion) < " & NumFecha1 & ")) GROUP BY Transacciones.CodCuentas Having (((Transacciones.CodCuentas) = '" & CodigoCuenta & "'))"
+         Me.DtaHistorial.Refresh
+         
+         If Not DtaHistorial.Recordset.EOF Then
+          If Not IsNull(Me.DtaHistorial.Recordset("MDebito")) Then
+           Debito = Me.DtaHistorial.Recordset("MDebito")
+          End If
+           If Not IsNull(Me.DtaHistorial.Recordset("MCredito")) Then
+             Credito = Me.DtaHistorial.Recordset("MCredito")
+          End If
+          Total = Debito - Credito
+          SaldoIni = Total
+         Else
+          SaldoIni = 0
+         End If
+          
+           
+         Else
+'///////////////Busco el Acumulado de la cuenta hasta la ultima fecha Seleccionada////////////
+'///////////////////////////////////////////////////////////////////////////////////////////////
+         Me.DtaHistorial.RecordSource = "SELECT Transacciones.CodCuentas, Sum(Debito*TCambio) AS MDebito, Sum(TCambio*Credito) AS MCredito From Transacciones Where (((Transacciones.FechaTransaccion) < " & NumFecha1 & ")) GROUP BY Transacciones.CodCuentas Having (((Transacciones.CodCuentas) = '" & CodigoCuenta & "'))"
+         Me.DtaHistorial.Refresh
+         
+         If Not DtaHistorial.Recordset.EOF Then
+          If Not IsNull(Me.DtaHistorial.Recordset("MDebito")) Then
+           Debito = Me.DtaHistorial.Recordset("MDebito")
+          End If
+           If Not IsNull(Me.DtaHistorial.Recordset("MCredito")) Then
+             Credito = Me.DtaHistorial.Recordset("MCredito")
+          End If
+          Total = Debito - Credito
+          SaldoIni = Total
+         Else
+          SaldoIni = 0
+         End If
+         End If
+         
+         
+      '   Me.DtaConsulta.Recordset.MoveLast
+  '       Periodo2 = Me.DtaConsulta.Recordset("NPeriodo")
+   '      Me.DtaHistorial.RecordSource = "SELECT Historial.CodCuenta, Historial.NPeriodo, Historial.SaldoInicial, Historial.SaldoFinal From Historial Where (((Historial.CodCuenta) = '" & CodigoCuenta & "') And ((Historial.NPeriodo) = " & Periodo2 & "))"
+    '     Me.DtaHistorial.Refresh
+     '    If Not DtaHistorial.Recordset.EOF Then
+      '    'SaldoFin = Me.DtaHistorial.Recordset("SaldoFinal")
+       '  End If
+       
+       ArepBank.DtaBanco.ConnectionString = ConexionReporte
+       ArepBank.LblBalance = Format(SaldoIni, "##,##0.00")
+       ArepBank.LblPaidIn.Caption = Format(SaldoIni, "##,##0.00")
+       'ArepBank.LblCloseBalance = SaldoFin
+       ArepBank.LblTipo.Caption = "CUENTA DE BANCO: " & Me.DBCodigo
+       ArepBank.LblFecha1 = Me.DTFecha1
+       ArepBank.LblFecha2 = Me.DTFecha2
+       ArepBank.DtaBanco.ConnectionString = ConexionReporte
+       ArepBank.DtaBanco.Source = "SELECT Transacciones.NTransaccion, Transacciones.FechaTransaccion, Transacciones.VoucherNo, Transacciones.ChequeNo, Transacciones.DescripcionMovimiento, Transacciones.CodCuentas, TCambio*Debito AS Debito, TCambio*Credito AS Credito, " & SaldoIni & "+[Transacciones]![Debito]-[Transacciones]![Credito] AS Balance, Transacciones.TCambio, Transacciones.NumeroMovimiento From Transacciones WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ") AND ((Transacciones.CodCuentas)='" & CodigoCuenta & "')) ORDER BY Transacciones.CodCuentas, Transacciones.FechaTransaccion, Transacciones.NTransaccion"
+
+       'ArepBank.DtaBanco.Source = "SELECT Transacciones.FechaTransaccion, Transacciones.VoucherNo, Transacciones.ChequeNo, Transacciones.DescripcionMovimiento, Transacciones.CodCuentas, Transacciones.Debito, Transacciones.Credito, " & SaldoIni & " +[Transacciones]![Debito]-[Transacciones]![Credito] AS Balance From Transacciones WHERE (((Transacciones.FechaTransaccion) Between " & NumFecha1 & " And " & NumFecha2 & ") AND ((Transacciones.CodCuentas)='" & CodigoCuenta & "'))ORDER BY Transacciones.CodCuentas, Transacciones.FechaTransaccion, Transacciones.NTransaccion"
+       
+       ArepBank.Logo.Picture = LoadPicture(RutaLogo)
+       ArepBank.LblEmpresa = Me.DtaDatosEmpresa.Recordset("NombreEmpresa")
+       ArepBank.LblEmpresa1 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa1")
+       ArepBank.LblEmpresa2 = Me.DtaDatosEmpresa.Recordset("NombreEmpresa2")
+       ArepBank.LblFechaImpreso = Format(Now, "dd/mm/yyyy")
+       ArepBank.Show 1
+    
+    
+
+End Select
+Me.Frame6.Visible = False
+Me.CmdVerReporte.Enabled = True
+Me.CmdSalir.Enabled = True
+Exit Sub
+TipoErrs:
+ MsgBox err.Description
+End Sub
+
+
+
+'Option Explicit
+
+'Dim Tape As New clsTape
+Private Sub Form_Load()
+
+Me.Frame3.Visible = False
+Me.Timer1.Enabled = True
+Me.Timer1.Interval = Tape.Speed
+
+With Me.DtaTasas2
+
+   .ConnectionString = Conexion
+End With
+
+With Me.DtaDatosEmpresa
+
+   .ConnectionString = Conexion
+   .RecordSource = "DatosEmpresa"
+   .Refresh
+End With
+
+With Me.DtaGrupos
+
+   .ConnectionString = Conexion
+   .RecordSource = "Grupos"
+End With
+
+With Me.DtaElimina
+
+   .ConnectionString = Conexion
+End With
+
+With Me.DtaConsulta2
+
+   .ConnectionString = Conexion
+End With
+
+With Me.DtaTasas
+
+   .ConnectionString = Conexion
+End With
+
+
+With Me.DtaReportes
+
+   .ConnectionString = Conexion
+   .RecordSource = "Reportes"
+End With
+
+With Me.DtaBancos
+
+   .ConnectionString = Conexion
+End With
+
+With Me.DtaConsulta
+
+   .ConnectionString = Conexion
+End With
+
+With Me.DtaHistorial
+
+   .ConnectionString = Conexion
+End With
+
+With Me.DtaCuentas
+
+   .ConnectionString = Conexion
+End With
+
+With Me.DtaPeriodos
+
+   .ConnectionString = Conexion
+End With
+
+
+Me.DTFecha1 = Format(Now, "dd/mm/yyyy")
+Me.DTFecha2 = Format(Now, "dd/mm/yyyy")
+
+
+
+Select Case QUIEN
+ Case "ReporteMovimientos"
+ Me.DBCodigo.Visible = False
+ Me.CmbReportes.AddItem ("PRESUPUESTO ANUAL")
+ Me.CmbReportes.AddItem ("REGISTRO DE MOVIMIENTOS")
+ Me.CmbReportes.AddItem ("AUXILIAR DE CUENTAS")
+  Me.CmbReportes.AddItem ("TOTAL AUXILIAR DE CUENTAS")
+   Me.CmbReportes.AddItem ("AUXILIAR x GRUPO")
+  Me.CmbReportes.AddItem ("BALANZA DE COMPROBACION")
+ 'Me.CmbReportes.AddItem ("SUSPENCE")
+  Me.DtaBancos.RecordSource = "SELECT Cuentas.CodCuentas, Cuentas.DescripcionCuentas, Cuentas.TipoCuenta From Cuentas ORDER BY Cuentas.CodCuentas"
+  Me.DtaBancos.Refresh
+  Me.DBCodigo.ListField = "CodCuentas"
+  Me.Label2.Visible = False
+  Me.Label1.Visible = False
+  Me.LblTransaccion.Visible = False
+  
+ Case "ReporteGenerales"
+ Me.DBCodigo.Visible = False
+ Me.Label2.Visible = False
+ Me.CmbReportes.AddItem ("ESTRUCTURA DE CUENTAS")
+ Me.CmbReportes.AddItem ("LISTADO CUENTAS")
+ Me.CmbReportes.AddItem ("TARJETA ACTIVO FIJO")
+ Me.CmbReportes.AddItem ("TARJETA EMPLEADOS")
+ Me.CmbReportes.AddItem ("GRUPOS DE CUENTAS")
+ Me.CmbReportes.AddItem ("TASAS DE CAMBIO")
+ Me.CmbReportes.AddItem ("LISTA DE USUARIOS")
+ Me.CmbReportes.AddItem ("TARJETA CONTRATISTA")
+
+ Case "ReporteBancos"
+  Me.CmbReportes.AddItem ("CONTROL DE BANCOS")
+  Me.CmbReportes.AddItem ("COMPROBANTE DE PAGO")
+  Me.DtaBancos.RecordSource = "SELECT Cuentas.CodCuentas, Cuentas.DescripcionCuentas, Cuentas.TipoCuenta From Cuentas Where (((Cuentas.TipoCuenta) = 'Bancos' Or (Cuentas.TipoCuenta) = 'Bancos' Or (Cuentas.TipoCuenta) = 'Caja')) ORDER BY Cuentas.CodCuentas"
+  Me.DtaBancos.Refresh
+  Me.DBCodigo.ListField = "CodCuentas"
+ 
+ Case "EstadosFinancieros"
+  Me.CmbReportes.AddItem ("BALANCE GENERAL")
+  Me.CmbReportes.AddItem ("ESTADO DE RESULTADO")
+  Me.DBCodigo.Visible = False
+ Me.Label2.Visible = False
+ Me.LblTransaccion.Visible = False
+ End Select
+End Sub
+
+Private Sub SmartButton1_Click()
+
+End Sub
+
+Private Sub Timer1_Timer()
+On Error GoTo TipoErrs
+Dim intWidth As Integer
+Dim intLeft As Integer      'Posición izquierda
+Dim objImage As Control     'Control Image
+Dim objImage1 As Control
+Randomize
+'Dim intLeft As Integer      'Posición izquierda
+    'Dim objImage As Control     'Control Image
+    Randomize   ' Inicializa el generador de números aleatorios.
+
+
+    ' Obtiene la anchura de la presentación
+    intWidth = picTV.Width
+    'Llama al método de la clase Tape
+    ' para reproducir la cinta.
+    Tape.Animate intWidth
+    
+    ' Obtiene la propiedad Left a partir de la clase
+   intLeft = Tape.Left
+
+If img1.Visible = True Then
+        img1.Visible = False
+        Set objImage = Img2
+    Else
+        img1.Visible = True
+        Set objImage = img1
+    End If
+    
+ If Lb0.Visible = True Then
+   Lb1.Visible = True
+   Lb0.Visible = False
+   
+ ElseIf Lb1.Visible = True Then
+    Lb1.Visible = False
+    Lb2.Visible = True
+ ElseIf Lb2.Visible = True Then
+    Lb2.Visible = False
+    Lb3.Visible = True
+ElseIf Lb3.Visible = True Then
+    Lb3.Visible = False
+    Lb4.Visible = True
+ElseIf Lb4.Visible = True Then
+    Lb4.Visible = False
+    Lb5.Visible = True
+  ElseIf Lb5.Visible = True Then
+    Lb5.Visible = False
+    Lb6.Visible = True
+  ElseIf Lb6.Visible = True Then
+    Lb6.Visible = False
+    Lb7.Visible = True
+  ElseIf Lb7.Visible = True Then
+    Lb7.Visible = False
+    Lb8.Visible = True
+  ElseIf Lb8.Visible = True Then
+    Lb8.Visible = False
+    Lb9.Visible = True
+  ElseIf Lb9.Visible = True Then
+    Lb9.Visible = False
+    Lb10.Visible = True
+  ElseIf Lb10.Visible = True Then
+    Lb10.Visible = False
+    Lb11.Visible = True
+  ElseIf Lb11.Visible = True Then
+    Lb11.Visible = False
+    Lb12.Visible = True
+  ElseIf Lb12.Visible = True Then
+    Lb12.Visible = False
+    Lb13.Visible = True
+  ElseIf Lb13.Visible = True Then
+    Lb13.Visible = False
+    Lb14.Visible = True
+  ElseIf Lb14.Visible = True Then
+    Lb14.Visible = False
+    Lb15.Visible = True
+  ElseIf Lb15.Visible = True Then
+    Lb15.Visible = False
+    Lb0.Visible = True
+    
+ End If
+
+' Borra la presentación
+    picTV.Cls
+    ' Muestra la nueva imagen en la nueva posición
+    picTV.PaintPicture objImage.Picture, intLeft, 100, 800, 800
+ Exit Sub
+TipoErrs:
+ MsgBox err.Description
+End Sub

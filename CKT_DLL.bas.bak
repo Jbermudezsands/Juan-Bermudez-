@@ -1,0 +1,152 @@
+Attribute VB_Name = "CKT_DLL"
+' Consts
+
+Public Const CKT_ERROR_INVPARAM = -1
+Public Const CKT_ERROR_NETDAEMONREADY = -1
+Public Const CKT_ERROR_NOTHISPERSON = -1
+Public Const CKT_ERROR_CHECKSUMERR = -2
+Public Const CKT_ERROR_MEMORYFULL = -1
+Public Const CKT_ERROR_INVFILENAME = -3
+Public Const CKT_ERROR_FILECANNOTOPEN = -4
+Public Const CKT_ERROR_FILECONTENTBAD = -5
+Public Const CKT_ERROR_FILECANNOTCREATED = -2
+Public Const CKT_RESULT_OK = 1
+Public Const CKT_RESULT_ADDOK = 1
+Public Const CKT_RESULT_CHANGEOK = 2
+Public Const CKT_RESULT_HASMORECONTENT = 2
+
+
+Public Const PERSONINFOSIZE = 48
+Public Const CLOCKINGRECORDSIZE = 40
+
+' Types
+
+Public Type NETINFO
+   ID          As Long
+   IP(3)       As Byte
+   Mask(3)     As Byte
+   Gateway(3)  As Byte
+   ServerIP(3) As Byte
+   MAC(5)      As Byte
+End Type
+
+Public Type DATETIMEINFO
+   ID     As Long
+   Year   As Integer
+   Month  As Byte
+   Day    As Byte
+   Hour   As Byte
+   Minute As Byte
+   Second As Byte
+End Type
+
+Public Type PERSONINFO
+   PersonID As Long
+   Password As String * 8
+   CardNo   As Long
+   Name     As String * 12
+   Dept     As Long
+   Group    As Long
+   KQOption As Long
+   FPMark   As Long
+   Other    As Long
+End Type
+
+Public Type CLOCKINGRECORD
+   ID       As Long
+   PersonID As Long
+   Stat     As Long
+   BackupCode     As Long
+   WorkTyte     As Long
+   Time     As String * 20
+End Type
+
+
+Public Type DEVICEINFO
+   ID            As Long
+   MajorVersion  As Long
+   MinorVersion  As Long
+   AdminPassword As Long
+   DoorLockDelay As Long
+   SpeakerVolume As Long
+   Parameter     As Long
+   DefaultAuth   As Long
+   Capacity      As Long
+End Type
+
+' Routines
+
+Public Declare Function CKT_FreeMemory Lib "tc400.dll" (ByVal memory As Long) As Long
+
+
+Public Declare Function CKT_RegisterSno Lib "tc400.dll" (ByVal Sno As Long, ByVal ComPort As Long) As Long
+Public Declare Function CKT_RegisterNet Lib "tc400.dll" (ByVal Sno As Integer, ByVal Addr As String) As Long
+Public Declare Sub CKT_UnregisterSnoNet Lib "tc400.dll" (ByVal Sno As Integer)
+Public Declare Function CKT_NetDaemon Lib "tc400.dll" () As Long
+Public Declare Function CKT_ComDaemon Lib "tc400.dll" () As Long
+Public Declare Sub CKT_Disconnect Lib "tc400.dll" ()
+Public Declare Function CKT_ReportConnections Lib "tc400.dll" (ByRef ppSno As Long) As Long
+
+
+Public Declare Function CKT_GetDeviceNetInfo Lib "tc400.dll" (ByVal Sno As Long, pNetInfo As NETINFO) As Long
+Public Declare Function CKT_SetDeviceIPAddr Lib "tc400.dll" (ByVal Sno As Long, ByRef IP As Byte) As Long
+Public Declare Function CKT_SetDeviceMask Lib "tc400.dll" (ByVal Sno As Long, ByRef Mask As Byte) As Long
+Public Declare Function CKT_SetDeviceGateway Lib "tc400.dll" (ByVal Sno As Long, ByRef Gate As Byte) As Long
+Public Declare Function CKT_SetDeviceServerIPAddr Lib "tc400.dll" (ByVal Sno As Long, ByRef Svr As Byte) As Long
+Public Declare Function CKT_SetDeviceMAC Lib "tc400.dll" (ByVal Sno As Long, ByRef MAC As Byte) As Long
+
+
+Public Declare Function CKT_GetDeviceClock Lib "tc400.dll" (ByVal Sno As Long, pDateTimeInfo As DATETIMEINFO) As Long
+Public Declare Function CKT_SetDeviceDate Lib "tc400.dll" (ByVal Sno As Long, ByVal Year As Integer, ByVal Month As Byte, ByVal Day As Byte) As Long
+Public Declare Function CKT_SetDeviceTime Lib "tc400.dll" (ByVal Sno As Long, ByVal Hour As Byte, ByVal Minute As Byte, ByVal Second As Byte) As Long
+
+
+Public Declare Function CKT_GetFPTemplate Lib "tc400.dll" (ByVal Sno As Long, ByVal PersonID As Long, ByVal FPID As Long, ByRef pFPData As Long, ByRef FPDataLen As Long) As Long
+Public Declare Function CKT_PutFPTemplate Lib "tc400.dll" (ByVal Sno As Long, ByVal PersonID As Long, ByVal FPID As Long, ByRef pFPData As Byte, ByVal FPDataLen As Long) As Long
+Public Declare Function CKT_GetFPTemplateSaveFile Lib "tc400.dll" (ByVal Sno As Long, ByVal PersonID As Long, ByVal FPID As Long, ByVal FPDataFilename As String) As Long
+Public Declare Function CKT_PutFPTemplateLoadFile Lib "tc400.dll" (ByVal Sno As Long, ByVal PersonID As Long, ByVal FPID As Long, ByVal FPDataFilename As String) As Long
+
+
+Public Declare Function CKT_GetFPRawData Lib "tc400.dll" (ByVal Sno As Long, ByVal PersonID As Long, ByVal FPID As Long, ByRef FPRawData As Byte) As Long
+Public Declare Function CKT_PutFPRawData Lib "tc400.dll" (ByVal Sno As Long, ByVal PersonID As Long, ByVal FPID As Long, ByRef FPRawData As Byte) As Long
+Public Declare Function CKT_GetFPRawDataSaveFile Lib "tc400.dll" (ByVal Sno As Long, ByVal PersonID As Long, ByVal FPID As Long, ByVal FPDataFilename As String) As Long
+Public Declare Function CKT_PutFPRawDataLoadFile Lib "tc400.dll" (ByVal Sno As Long, ByVal PersonID As Long, ByVal FPID As Long, ByVal FPDataFilename As String) As Long
+
+
+Public Declare Function CKT_ListPersonInfo Lib "tc400.dll" (ByVal Sno As Long, ByRef pRecordCount As Long, ByRef ppPersons As Long) As Long
+Public Declare Function CKT_ModifyPersonInfo Lib "tc400.dll" (ByVal Sno As Long, person As PERSONINFO) As Long
+Public Declare Function CKT_DeletePersonInfo Lib "tc400.dll" (ByVal Sno As Long, ByVal PersonID As Long, ByVal backupID As Long) As Long
+Public Declare Function CKT_DeleteAllPersonInfo Lib "tc400.dll" (ByVal Sno As Long) As Long
+
+
+Public Declare Function CKT_ListPersonInfoEx Lib "tc400.dll" (ByVal Sno As Long, ByRef ppLongRun As Long) As Long
+Public Declare Function CKT_ListPersonProgress Lib "tc400.dll" (ByVal pLongRun As Long, ByRef pRecCount As Long, ByRef pRetCount As Long, ByRef ppPersons As Long) As Long
+
+
+Public Declare Function CKT_GetCounts Lib "tc400.dll" (ByVal Sno As Long, ByRef pPersonCount As Long, ByRef pFPCount As Long, ByRef pClockingsCount As Long) As Long
+Public Declare Function CKT_GetClockingRecord Lib "tc400.dll" (ByVal Sno As Long, ByRef pRecordCount As Long, ByRef ppClockings As Long) As Long
+Public Declare Function CKT_ClearClockingRecord Lib "tc400.dll" (ByVal Sno As Long, ByVal tpe As Long, ByVal count As Long) As Long
+Public Declare Function CKT_RecallClockingRecord Lib "tc400.dll" (ByVal Sno As Long, ByVal NewRecordCount As Long) As Long
+
+
+Public Declare Function CKT_GetClockingRecordEx Lib "tc400.dll" (ByVal Sno As Long, ByRef ppLongRun As Long) As Long
+Public Declare Function CKT_GetClockingRecordProgress Lib "tc400.dll" (ByVal pLongRun As Long, ByRef pRecCount As Long, ByRef pRetCount As Long, ByRef ppPersons As Long) As Long
+
+
+Public Declare Function CKT_SetDoor Lib "tc400.dll" (ByVal Sno As Long, ByVal Second As Long) As Long
+Public Declare Function CKT_SetSpeakerVolume Lib "tc400.dll" (ByVal Sno As Long, ByVal Volume As Long) As Long
+Public Declare Function CKT_SetDeviceAdminPassword Lib "tc400.dll" (ByVal Sno As Long, ByVal Password As String) As Long
+Public Declare Function CKT_SetDeviceAdminPassword Lib "tc400.dll" (ByVal Sno As Long, <MarshalAs(UnmanagedType.LPStr)> ByVal Password As String) As Integer
+
+Public Declare Function CKT_SetRealtimeMode Lib "tc400.dll" (ByVal Sno As Long, ByVal RealMode As Long) As Long
+Public Declare Function CKT_SetWG Lib "tc400.dll" (ByVal Sno As Long, ByVal WGMode As Long) As Long
+Public Declare Function CKT_SetNoSearch Lib "tc400.dll" (ByVal Sno As Long, ByVal dis_n_search As Long) As Long
+
+                        
+Public Declare Function CKT_ReadRealtimeClocking Lib "tc400.dll" (ByRef ppClockings As Long) As Long
+
+
+Public Declare Function CKT_ResetDevice Lib "tc400.dll" (ByVal Sno As Long) As Long
+Public Declare Function CKT_GetDeviceInfo Lib "tc400.dll" (ByVal Sno As Long, devinfo As DEVICEINFO) As Long
+
+
