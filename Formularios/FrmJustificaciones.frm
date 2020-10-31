@@ -6,13 +6,13 @@ Object = "{562E3E04-2C31-4ECE-83F4-4017EEE51D40}#8.0#0"; "todg8.ocx"
 Object = "{60CCE6A8-5C61-4F30-8513-F57EED62E86A}#8.0#0"; "todl8.ocx"
 Object = "{065E6FD1-1BF9-11D2-BAE8-00104B9E0792}#3.0#0"; "ssa3d30.ocx"
 Begin VB.Form FrmJustificaciones 
-   Caption         =   "Form1"
-   ClientHeight    =   6660
+   Caption         =   "Justificaciones"
+   ClientHeight    =   6615
    ClientLeft      =   60
    ClientTop       =   450
    ClientWidth     =   12705
    LinkTopic       =   "Form1"
-   ScaleHeight     =   6660
+   ScaleHeight     =   6615
    ScaleWidth      =   12705
    StartUpPosition =   3  'Windows Default
    Begin VB.TextBox TxtMotivo 
@@ -63,7 +63,7 @@ Begin VB.Form FrmJustificaciones
          _ExtentX        =   2990
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   17170433
+         Format          =   82378753
          CurrentDate     =   43190
       End
       Begin MSComCtl2.DTPicker DTPFechaIni 
@@ -75,7 +75,7 @@ Begin VB.Form FrmJustificaciones
          _ExtentX        =   2990
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   17170433
+         Format          =   82378753
          CurrentDate     =   43190
       End
       Begin MSMask.MaskEdBox TxtHora2 
@@ -345,7 +345,7 @@ Begin VB.Form FrmJustificaciones
       RowDividerColor =   14215660
       RowSubDividerColor=   14215660
       AddItemSeparator=   ";"
-      _PropDict       =   $"FrmJustificaciones.frx":00E8
+      _PropDict       =   $"FrmJustificaciones.frx":00E3
       _StyleDefs(0)   =   "_StyleRoot:id=0,.parent=-1,.alignment=3,.valignment=0,.bgcolor=&H80000005&"
       _StyleDefs(1)   =   ":id=0,.fgcolor=&H80000008&,.wraptext=0,.locked=0,.transparentBmp=0"
       _StyleDefs(2)   =   ":id=0,.fgpicPosition=0,.bgpicMode=0,.appearance=0,.borderSize=0,.ellipsis=0"
@@ -426,12 +426,12 @@ Begin VB.Form FrmJustificaciones
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Picture         =   "FrmJustificaciones.frx":0192
+      Picture         =   "FrmJustificaciones.frx":018D
       Caption         =   "Cerrar"
       ButtonStyle     =   3
       PictureAlignment=   9
       PictureDnFrames =   1
-      PictureDn       =   "FrmJustificaciones.frx":0E6C
+      PictureDn       =   "FrmJustificaciones.frx":0E67
    End
    Begin Threed.SSCommand CmdGuardar 
       Height          =   585
@@ -455,7 +455,7 @@ Begin VB.Form FrmJustificaciones
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Picture         =   "FrmJustificaciones.frx":10CE
+      Picture         =   "FrmJustificaciones.frx":10C9
       Caption         =   "Agregar"
       ButtonStyle     =   3
       PictureAlignment=   9
@@ -481,7 +481,7 @@ Begin VB.Form FrmJustificaciones
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Picture         =   "FrmJustificaciones.frx":19A8
+      Picture         =   "FrmJustificaciones.frx":19A3
       Caption         =   "Consultar"
       ButtonStyle     =   4
       PictureAlignment=   9
@@ -507,13 +507,13 @@ Begin VB.Form FrmJustificaciones
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Picture         =   "FrmJustificaciones.frx":2682
+      Picture         =   "FrmJustificaciones.frx":267D
       Caption         =   "Borrar"
       ButtonStyle     =   3
       PictureAlignment=   9
       PictureDnFrames =   1
       ShapeSize       =   1
-      PictureDn       =   "FrmJustificaciones.frx":299C
+      PictureDn       =   "FrmJustificaciones.frx":2997
    End
    Begin Threed.SSCommand SSCommand1 
       Height          =   585
@@ -536,16 +536,16 @@ Begin VB.Form FrmJustificaciones
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Picture         =   "FrmJustificaciones.frx":2CB6
+      Picture         =   "FrmJustificaciones.frx":2CB1
       Caption         =   "Imprimir"
       ButtonStyle     =   3
       PictureAlignment=   9
       PictureDnFrames =   1
       ShapeSize       =   1
-      PictureDn       =   "FrmJustificaciones.frx":3908
+      PictureDn       =   "FrmJustificaciones.frx":3903
    End
    Begin TrueOleDBGrid80.TDBGrid TDBGrid1 
-      Bindings        =   "FrmJustificaciones.frx":3C22
+      Bindings        =   "FrmJustificaciones.frx":3C1D
       Height          =   3735
       Left            =   120
       TabIndex        =   20
@@ -867,10 +867,57 @@ Begin VB.Form FrmJustificaciones
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      Picture         =   "FrmJustificaciones.frx":3C43
+      Picture         =   "FrmJustificaciones.frx":3C3E
       Caption         =   "Buscar"
       ButtonStyle     =   4
       PictureAlignment=   9
+   End
+   Begin MSAdodcLib.Adodc AdoConsulta 
+      Height          =   375
+      Left            =   480
+      Top             =   7560
+      Visible         =   0   'False
+      Width           =   4215
+      _ExtentX        =   7435
+      _ExtentY        =   661
+      ConnectMode     =   0
+      CursorLocation  =   3
+      IsolationLevel  =   -1
+      ConnectionTimeout=   15
+      CommandTimeout  =   30
+      CursorType      =   3
+      LockType        =   3
+      CommandType     =   8
+      CursorOptions   =   0
+      CacheSize       =   50
+      MaxRecords      =   0
+      BOFAction       =   0
+      EOFAction       =   0
+      ConnectStringType=   1
+      Appearance      =   1
+      BackColor       =   -2147483643
+      ForeColor       =   -2147483640
+      Orientation     =   0
+      Enabled         =   -1
+      Connect         =   ""
+      OLEDBString     =   ""
+      OLEDBFile       =   ""
+      DataSourceName  =   ""
+      OtherAttributes =   ""
+      UserName        =   ""
+      Password        =   ""
+      RecordSource    =   ""
+      Caption         =   "AdoConsulta"
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      _Version        =   393216
    End
    Begin VB.Label Label6 
       BackStyle       =   0  'Transparent
@@ -992,26 +1039,33 @@ Private Sub CmdIncobrable_Click()
 End Sub
 
 Private Sub Form_Load()
+
     With Me.AdoRegistroJustifica
-       .ConnectionString = Conexion
+       .ConnectionString = ConexionEasy
        .RecordSource = "SELECT Classid, Classname From LeaveClass"
        .Refresh
     End With
     
     With Me.AdoJustificaciones
-       .ConnectionString = Conexion
+       .ConnectionString = ConexionEasy
        .RecordSource = "SELECT  Userid, BeginTime, EndTime, LeaveClassid, Whys, Userid From UserLeave Where (Lsh = -100000)"
        .Refresh
     End With
     
     With Me.AdoJustificaciones2
-       .ConnectionString = Conexion
+       .ConnectionString = ConexionEasy
        .RecordSource = "SELECT  Userid, BeginTime, EndTime, LeaveClassid, Whys, Userid From UserLeave Where (Lsh = -100000)"
        .Refresh
     End With
     
     With Me.AdoUser
-       .ConnectionString = Conexion
+       .ConnectionString = ConexionEasy
+       .RecordSource = "SELECT Userinfo.Userid, Userinfo.Name, Dept.DeptName FROM Userinfo INNER JOIN  Dept ON Userinfo.Deptid = Dept.Deptid"
+       .Refresh
+    End With
+    
+    With Me.AdoConsulta
+      .ConnectionString = ConexionEasy
     End With
     
     Me.TxtHora1.Text = Format(Now, "hh:mm")
@@ -1044,25 +1098,35 @@ Private Sub SSCommand1_Click()
 '                    "WHERE ((Userinfo.IDCard) Between '" & Me.TDBCodigoEmpleado.Columns(0).Text & "' And '" & Me.TDBCodigoEmpleado.Columns(0).Text & "') "
         sql = "SELECT DISTINCT Userinfo.Userid, Userinfo.Name, Dept.DeptName, Dept.Deptid, Userinfo.IDCard FROM  LeaveClass RIGHT OUTER JOIN  UserLeave INNER JOIN Userinfo ON UserLeave.Userid = Userinfo.Userid LEFT OUTER JOIN  Dept ON Userinfo.Deptid = Dept.Deptid ON LeaveClass.Classid = UserLeave.LeaveClassid " & _
               "WHERE  (Userinfo.IDCard BETWEEN '" & Me.TDBCodigoEmpleado.Columns(0).Text & "' AND '" & Me.TDBCodigoEmpleado.Columns(0).Text & "')"
-        ArepJustificacion.DataControl1.ConnectionString = Conexion
+        ArepJustificacion.DataControl1.ConnectionString = ConexionEasy
         ArepJustificacion.DataControl1.Source = sql
         ArepJustificacion.Show 1
         
         
 '         Set rpt = New ArepJustificacion
-'         rpt.DataControl1.ConnectionString = Conexion
+'         rpt.DataControl1.ConnectionString = ConexionReloj
 '         rpt.DataControl1.Source = SQl
 '         fPreview.RunReport rpt
 '         fPreview.Show 1
 End Sub
 
-Private Sub TDBCodigoEmpleado_Change()
+Private Sub TDBCodigoEmpleado_ItemChange()
  Me.TxtNombre1.Text = Me.TDBCodigoEmpleado.Columns(1).Text
  
  Dim CodigoEmpleado1 As String
 
 CodigoEmpleado1 = Me.TDBCodigoEmpleado.Text
-Me.AdoJustificaciones.RecordSource = "SELECT Userinfo.Userid, UserLeave.BeginTime, UserLeave.EndTime, LeaveClass.Classname, UserLeave.Whys FROM  UserLeave INNER JOIN  Userinfo ON UserLeave.Userid = Userinfo.Userid INNER JOIN  LeaveClass ON UserLeave.LeaveClassid = LeaveClass.Classid WHERE (Userinfo.IDCard = '" & CodigoEmpleado1 & "') ORDER BY UserLeave.BeginTime"
+
+'///////////////////////////////////////Consulto al empleado ////////////////////
+Me.AdoConsulta.RecordSource = "SELECT  Userinfo.Userid, Userinfo.Name, Dept.DeptName FROM  Userinfo INNER JOIN  Dept ON Userinfo.Deptid = Dept.Deptid  WHERE   (Userinfo.Userid =  '" & CodigoEmpleado1 & "')"
+Me.AdoConsulta.Refresh
+If Not Me.AdoConsulta.Recordset.EOF Then
+ Me.TxtNombre1.Text = Me.AdoConsulta.Recordset("Name")
+End If
+
+
+'Me.AdoJustificaciones.RecordSource = "SELECT Userinfo.Userid, UserLeave.BeginTime, UserLeave.EndTime, LeaveClass.Classname, UserLeave.Whys FROM  UserLeave INNER JOIN  Userinfo ON UserLeave.Userid = Userinfo.Userid INNER JOIN  LeaveClass ON UserLeave.LeaveClassid = LeaveClass.Classid WHERE (Userinfo.IDCard = '" & CodigoEmpleado1 & "') ORDER BY UserLeave.BeginTime"
+Me.AdoJustificaciones.RecordSource = "SELECT UserLeave.Userid, UserLeave.BeginTime, UserLeave.EndTime, LeaveClass.Classname, UserLeave.Whys FROM LeaveClass INNER JOIN (UserLeave INNER JOIN Userinfo ON UserLeave.Userid = Userinfo.Userid) ON LeaveClass.Classid = UserLeave.LeaveClassid WHERE (((UserLeave.Userid)='" & CodigoEmpleado1 & "')) "
 Me.AdoJustificaciones.Refresh
 
 Me.TDBGrid1.Columns(0).Visible = False

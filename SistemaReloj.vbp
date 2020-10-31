@@ -99,6 +99,7 @@ Designer=Reportes\ArepAusencia.Dsr
 Designer=Reportes\ArepMarcasIncompletas.Dsr
 Designer=Reportes\ArepAsistenciaQuince.Dsr
 Designer=Reportes\ArepAsistenciaCatorce.Dsr
+Form=Formularios\FrmJustificaciones.frm
 IconForm="MDIPrimero"
 Startup="MDIPrimero"
 HelpFile=""

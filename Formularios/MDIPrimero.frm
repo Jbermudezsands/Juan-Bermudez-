@@ -146,7 +146,6 @@ Begin VB.MDIForm MDIPrimero
             Object.Width           =   1773
             MinWidth        =   1764
             Picture         =   "MDIPrimero.frx":2FF80E
-            TextSave        =   ""
             Key             =   ""
             Object.Tag             =   ""
          EndProperty
@@ -161,7 +160,6 @@ Begin VB.MDIForm MDIPrimero
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   3528
             MinWidth        =   3528
-            TextSave        =   ""
             Key             =   ""
             Object.Tag             =   ""
          EndProperty
@@ -182,7 +180,7 @@ Begin VB.MDIForm MDIPrimero
          EndProperty
          BeginProperty Panel6 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Style           =   5
-            TextSave        =   "04:05 p.m."
+            TextSave        =   "05:54 p.m."
             Key             =   ""
             Object.Tag             =   ""
          EndProperty
@@ -1047,6 +1045,11 @@ Private Sub CommandBars_Execute(ByVal Control As XtremeCommandBars.ICommandBarCo
                   MDIPrimero.MousePointer = 11
                     FrmExportarExcel.Show 1
                   MDIPrimero.MousePointer = 0
+                  
+        Case 1713:
+                  MDIPrimero.MousePointer = 11
+                    FrmJustificaciones.Show 1
+                  MDIPrimero.MousePointer = 0
         End Select
 End Sub
 
@@ -1105,6 +1108,7 @@ Private Sub CreateRibbonBar()
     CommandBars.Icons.LoadBitmap App.Path & "\Imagenes\Nominas.png", 1710, xtpImageNormal
     CommandBars.Icons.LoadBitmap App.Path & "\Imagenes\Excel2.png", 1711, xtpImageNormal
     CommandBars.Icons.LoadBitmap App.Path & "\Imagenes\ExportarExcel5.png", 1712, xtpImageNormal
+    CommandBars.Icons.LoadBitmap App.Path & "\Imagenes\Justificacion.png", 1713, xtpImageNormal
     '
 '
 '    '///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1142,6 +1146,8 @@ Private Sub CreateRibbonBar()
      Set item = GroupFile.Add(XtremeCommandBars.XTPControlType.xtpControlButton, 1708, "&Asignacion de Jornadas", False, False)
      item.Style = xtpButtonIconAndCaptionBelow
      Set item = GroupFile.Add(XtremeCommandBars.XTPControlType.xtpControlButton, 1709, "&Configuracion Horarios", False, False)
+     item.Style = xtpButtonIconAndCaptionBelow
+     Set item = GroupFile.Add(XtremeCommandBars.XTPControlType.xtpControlButton, 1713, "&Justificaciones", False, False)
      item.Style = xtpButtonIconAndCaptionBelow
     '/////////////////////////////////////////////////////////////////////////////////////////////////////
     '///////////////////////////////CREO EL TABS DE OPCIONES//////////////////////////////////////////////
