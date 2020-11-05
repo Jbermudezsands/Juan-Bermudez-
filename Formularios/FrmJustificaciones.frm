@@ -63,7 +63,7 @@ Begin VB.Form FrmJustificaciones
          _ExtentX        =   2990
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   82378753
+         Format          =   78053377
          CurrentDate     =   43190
       End
       Begin MSComCtl2.DTPicker DTPFechaIni 
@@ -75,7 +75,7 @@ Begin VB.Form FrmJustificaciones
          _ExtentX        =   2990
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   82378753
+         Format          =   78053377
          CurrentDate     =   43190
       End
       Begin MSMask.MaskEdBox TxtHora2 
@@ -966,7 +966,7 @@ Dim CodigoEmpleado1 As String
 
 CodigoEmpleado1 = Me.TDBCodigoEmpleado.Text
 'Me.AdoJustificaciones.RecordSource = "SELECT  Userinfo.Userid, UserLeave.BeginTime, UserLeave.EndTime, UserLeave.LeaveClassid, UserLeave.Whys  FROM UserLeave INNER JOIN  Userinfo ON UserLeave.Userid = Userinfo.Userid WHERE (Userinfo.IDCard = '" & CodigoEmpleado1 & "') ORDER BY UserLeave.BeginTime"
-Me.AdoJustificaciones.RecordSource = "SELECT Userinfo.Userid, UserLeave.BeginTime, UserLeave.EndTime, LeaveClass.Classname, UserLeave.Whys FROM  UserLeave INNER JOIN  Userinfo ON UserLeave.Userid = Userinfo.Userid INNER JOIN  LeaveClass ON UserLeave.LeaveClassid = LeaveClass.Classid WHERE (Userinfo.IDCard = '" & CodigoEmpleado1 & "') ORDER BY UserLeave.BeginTime"
+Me.AdoJustificaciones.RecordSource = "SELECT Userinfo.Userid, UserLeave.BeginTime, UserLeave.EndTime, LeaveClass.Classname, UserLeave.Whys FROM  UserLeave INNER JOIN  Userinfo ON UserLeave.Userid = Userinfo.Userid INNER JOIN  LeaveClass ON UserLeave.LeaveClassid = LeaveClass.Classid WHERE (Userinfo.Userid = '" & CodigoEmpleado1 & "') ORDER BY UserLeave.BeginTime"
 Me.AdoJustificaciones.Refresh
 
 Me.TDBGrid1.Columns(0).Visible = False
@@ -1000,7 +1000,7 @@ Private Sub CmdGuardar_Click()
   
   
  '/////////////////////////////BUSCO EL USERID ////////////////////////////////////////////
-  Me.AdoUser.RecordSource = "SELECT Userinfo.* From Userinfo WHERE   (IDCard = '" & CodigoEmpleado1 & "')"
+  Me.AdoUser.RecordSource = "SELECT Userinfo.* From Userinfo WHERE   (Userid = '" & CodigoEmpleado1 & "')"
   Me.AdoUser.Refresh
   If Not Me.AdoUser.Recordset.EOF Then
     CodEmpleado = Me.AdoUser.Recordset("Userid")
