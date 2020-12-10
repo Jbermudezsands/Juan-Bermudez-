@@ -449,7 +449,7 @@ Begin VB.Form FrmNominasReloj
          _ExtentX        =   3413
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   78118913
+         Format          =   81264641
          CurrentDate     =   40789
       End
       Begin MSComCtl2.DTPicker DTFechaFin 
@@ -461,7 +461,7 @@ Begin VB.Form FrmNominasReloj
          _ExtentX        =   3201
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   78118913
+         Format          =   81264641
          CurrentDate     =   40789
       End
       Begin ACTIVESKINLibCtl.SkinLabel SkinLabel2 
@@ -1115,7 +1115,7 @@ End Sub
 Private Sub CmdIniciar_Click()
  Dim Date1 As Date, Date2 As Date, CodEmpleado As String, CodigoEmpleado As Double, TarifaHoraria As Double
  Dim Ciclo As Double, HorasTrabajadas As String, NumeroNomina As Double, NumeroLinea As Double
- Dim Entrada As String, Salida As String, HorasExtras As Double, HoraSalida As Date, HoraSalidaHorario As Date
+ Dim Entrada As String, Salida As String, Entrada3 As String, Salida3 As String, HorasExtras As Double, HoraSalida As Date, HoraSalidaHorario As Date
  Dim Horas As String, fPreview As New FrmPreview, Dia As Double, TotalHoras As Double, MinutosExtra As Double
  Dim cn As New ADODB.Connection, rpt As Object, CardNumero As String, TotalHorasExtras As Double
  Dim rs As New ADODB.Recordset, Id As Double, DiaInicio As Double, Numero As Double, CodigoInterno As Double
@@ -1435,12 +1435,19 @@ Private Sub CmdIniciar_Click()
                     '*********************************************************************************************
            
                     Entrada = "00:00"
+                    Entrada3 = "00:00"
                     If TieneJornadas = True Then
                     
                         Me.AdoConsulta.RecordSource = sql
                         Me.AdoConsulta.Refresh
                         If Not Me.AdoConsulta.Recordset.EOF Then
                           Entrada = Me.AdoConsulta.Recordset("CheckTime")
+                          
+                          '////////////////////////////VERIFICO LA SEGUNSA ENTRADA //////////////////////
+                          If Me.AdoConsulta.Recordset.RecordCount > 1 Then
+                           Me.AdoConsulta.Recordset.MoveLast
+                           Entrada3 = Me.AdoConsulta.Recordset("CheckTime")
+                          End If
                         End If
                    
                     Else
@@ -1448,6 +1455,12 @@ Private Sub CmdIniciar_Click()
                         Me.AdoConsulta.Refresh
                         If Not Me.AdoConsulta.Recordset.EOF Then
                           Entrada = Me.AdoConsulta.Recordset("CheckTime")
+                          
+                          '////////////////////////////VERIFICO LA SEGUNSA ENTRADA //////////////////////
+                          If Me.AdoConsulta.Recordset.RecordCount > 1 Then
+                           Me.AdoConsulta.Recordset.MoveLast
+                           Entrada3 = Me.AdoConsulta.Recordset("CheckTime")
+                          End If
                         End If
                     End If
                     
@@ -1462,6 +1475,7 @@ Private Sub CmdIniciar_Click()
                         End If
                     
                     Salida = "00:00"
+                    Salida3 = "00:00"
                     If TieneJornadas = True Then
                        
                          '///////////////////////////////CON ESTAS FECHAS BUSCO LA HORA DE SALIDA DE LA JORNADA ///////////////////
@@ -1490,6 +1504,13 @@ Private Sub CmdIniciar_Click()
                         If Not Me.AdoConsulta.Recordset.EOF Then
                             Me.AdoConsulta.Recordset.MoveLast
                             Salida = Me.AdoConsulta.Recordset("CheckTime")
+                            
+                          '////////////////////////////VERIFICO LA SEGUNDA SALIDA //////////////////////
+                          If Me.AdoConsulta.Recordset.RecordCount > 1 Then
+                           Me.AdoConsulta.Recordset.MoveFirst
+                           Salida3 = Me.AdoConsulta.Recordset("CheckTime")
+                          End If
+                          
                         ElseIf JornadaIntercalada = True Then
                           '//////////////SI LA JORNADA ES INTERCALADA Y NO TIENE REGISTRO DE SALIDA /////////////////////////
                           '//////////////HAGO CERO LA ENTRADA ///////////////////////////////////////////////////////
@@ -1500,8 +1521,15 @@ Private Sub CmdIniciar_Click()
                         Me.AdoConsulta.RecordSource = SQlSalida
                         Me.AdoConsulta.Refresh
                         If Not Me.AdoConsulta.Recordset.EOF Then
+                        
                           Me.AdoConsulta.Recordset.MoveLast
                           Salida = Me.AdoConsulta.Recordset("CheckTime")
+                          
+                          '////////////////////////////VERIFICO LA SEGUNDA SALIDA //////////////////////
+                          If Me.AdoConsulta.Recordset.RecordCount > 1 Then
+                           Me.AdoConsulta.Recordset.MoveFirst
+                           Salida3 = Me.AdoConsulta.Recordset("CheckTime")
+                          End If
                         End If
                     End If
                     
@@ -1541,6 +1569,26 @@ Private Sub CmdIniciar_Click()
                       
                       End If
                       
+                    End If
+                    
+                    
+                    '/////////////////////////////////VERIFICO SI TIENE SEGUNDA ENTRADA Y REGISTRO FALTANTE //
+                    '////////////////////////////////////////////////////////////////////////////////
+                    If Entrada = "00:00" Then
+                     If Salida3 <> "00:00" Then
+                        Entrada = Salida3
+                     End If
+                    End If
+                    
+                    If Salida = "00:00" Then
+                      If Entrada3 <> "00:00" Then
+                         Salida = Entrada3
+                      End If
+                    End If
+                    
+                    If Salida = Entrada Then
+                       Entrada = "00:00"
+                       Salida = "00:00"
                     End If
 
                      

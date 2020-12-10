@@ -40,11 +40,27 @@ Begin VB.Form FrmJustificaciones
       TabIndex        =   2
       Top             =   120
       Width           =   5175
+      Begin VB.CheckBox ChkNoSabadoyDomingo 
+         Caption         =   "No Incluir Sabados y Domingo"
+         Height          =   255
+         Left            =   480
+         TabIndex        =   23
+         Top             =   1320
+         Width           =   2895
+      End
+      Begin VB.CheckBox ChkJustificaDia 
+         Caption         =   "Crear Justifiacion para cada dia"
+         Height          =   255
+         Left            =   240
+         TabIndex        =   22
+         Top             =   1080
+         Width           =   2775
+      End
       Begin MSMask.MaskEdBox TxtHora1 
          Height          =   300
-         Left            =   3120
+         Left            =   3000
          TabIndex        =   3
-         Top             =   480
+         Top             =   360
          Width           =   960
          _ExtentX        =   1693
          _ExtentY        =   529
@@ -56,33 +72,33 @@ Begin VB.Form FrmJustificaciones
       End
       Begin MSComCtl2.DTPicker DTPFechaFin 
          Height          =   300
-         Left            =   1080
+         Left            =   960
          TabIndex        =   4
-         Top             =   960
+         Top             =   720
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   78053377
+         Format          =   17104897
          CurrentDate     =   43190
       End
       Begin MSComCtl2.DTPicker DTPFechaIni 
          Height          =   300
-         Left            =   1080
+         Left            =   960
          TabIndex        =   5
-         Top             =   480
+         Top             =   360
          Width           =   1695
          _ExtentX        =   2990
          _ExtentY        =   529
          _Version        =   393216
-         Format          =   78053377
+         Format          =   17104897
          CurrentDate     =   43190
       End
       Begin MSMask.MaskEdBox TxtHora2 
          Height          =   300
-         Left            =   3120
+         Left            =   3000
          TabIndex        =   6
-         Top             =   960
+         Top             =   720
          Width           =   960
          _ExtentX        =   1693
          _ExtentY        =   529
@@ -96,18 +112,18 @@ Begin VB.Form FrmJustificaciones
          BackStyle       =   0  'Transparent
          Caption         =   "Hasta"
          Height          =   255
-         Left            =   360
+         Left            =   240
          TabIndex        =   8
-         Top             =   960
+         Top             =   720
          Width           =   735
       End
       Begin VB.Label Label1 
          BackStyle       =   0  'Transparent
          Caption         =   "Desde"
          Height          =   255
-         Left            =   360
+         Left            =   240
          TabIndex        =   7
-         Top             =   480
+         Top             =   360
          Width           =   975
       End
    End
@@ -966,7 +982,7 @@ Dim CodigoEmpleado1 As String
 
 CodigoEmpleado1 = Me.TDBCodigoEmpleado.Text
 'Me.AdoJustificaciones.RecordSource = "SELECT  Userinfo.Userid, UserLeave.BeginTime, UserLeave.EndTime, UserLeave.LeaveClassid, UserLeave.Whys  FROM UserLeave INNER JOIN  Userinfo ON UserLeave.Userid = Userinfo.Userid WHERE (Userinfo.IDCard = '" & CodigoEmpleado1 & "') ORDER BY UserLeave.BeginTime"
-Me.AdoJustificaciones.RecordSource = "SELECT Userinfo.Userid, UserLeave.BeginTime, UserLeave.EndTime, LeaveClass.Classname, UserLeave.Whys FROM  UserLeave INNER JOIN  Userinfo ON UserLeave.Userid = Userinfo.Userid INNER JOIN  LeaveClass ON UserLeave.LeaveClassid = LeaveClass.Classid WHERE (Userinfo.Userid = '" & CodigoEmpleado1 & "') ORDER BY UserLeave.BeginTime"
+Me.AdoJustificaciones.RecordSource = "SELECT Userinfo.Userid, UserLeave.BeginTime, UserLeave.EndTime, LeaveClass.Classname, UserLeave.Whys FROM (UserLeave INNER JOIN Userinfo ON UserLeave.Userid = Userinfo.Userid) INNER JOIN LeaveClass ON UserLeave.LeaveClassid = LeaveClass.Classid Where (((Userinfo.UserID) = '" & CodigoEmpleado1 & "')) ORDER BY UserLeave.BeginTime;"
 Me.AdoJustificaciones.Refresh
 
 Me.TDBGrid1.Columns(0).Visible = False
@@ -1094,13 +1110,13 @@ End Sub
 Private Sub SSCommand1_Click()
  Dim sql As String
  
-'         sql = "SELECT Userinfo.Userid, Userinfo.Name, Dept.DeptName, Dept.Deptid, UserLeave.BeginTime, UserLeave.EndTime, UserLeave.Whys, LeaveClass.Classname FROM LeaveClass RIGHT JOIN ((UserLeave INNER JOIN Userinfo ON UserLeave.Userid = Userinfo.Userid) LEFT JOIN Dept ON Userinfo.Deptid = Dept.Deptid) ON LeaveClass.Classid = UserLeave.LeaveClassid " & _
-'                    "WHERE ((Userinfo.IDCard) Between '" & Me.TDBCodigoEmpleado.Columns(0).Text & "' And '" & Me.TDBCodigoEmpleado.Columns(0).Text & "') "
-        sql = "SELECT DISTINCT Userinfo.Userid, Userinfo.Name, Dept.DeptName, Dept.Deptid, Userinfo.IDCard FROM  LeaveClass RIGHT OUTER JOIN  UserLeave INNER JOIN Userinfo ON UserLeave.Userid = Userinfo.Userid LEFT OUTER JOIN  Dept ON Userinfo.Deptid = Dept.Deptid ON LeaveClass.Classid = UserLeave.LeaveClassid " & _
-              "WHERE  (Userinfo.IDCard BETWEEN '" & Me.TDBCodigoEmpleado.Columns(0).Text & "' AND '" & Me.TDBCodigoEmpleado.Columns(0).Text & "')"
-        ArepJustificacion.DataControl1.ConnectionString = ConexionEasy
-        ArepJustificacion.DataControl1.Source = sql
-        ArepJustificacion.Show 1
+         sql = "SELECT Userinfo.Userid, Userinfo.Name, Dept.DeptName, Dept.Deptid, UserLeave.BeginTime, UserLeave.EndTime, UserLeave.Whys, LeaveClass.Classname FROM LeaveClass RIGHT JOIN ((UserLeave INNER JOIN Userinfo ON UserLeave.Userid = Userinfo.Userid) LEFT JOIN Dept ON Userinfo.Deptid = Dept.Deptid) ON LeaveClass.Classid = UserLeave.LeaveClassid " & _
+                    "WHERE ((Userinfo.Userid) Between '" & Me.TDBCodigoEmpleado.Columns(0).Text & "' And '" & Me.TDBCodigoEmpleado.Columns(0).Text & "') "
+'        sql = "SELECT DISTINCT Userinfo.Userid, Userinfo.Name, Dept.DeptName, Dept.Deptid, Userinfo.IDCard FROM  LeaveClass RIGHT OUTER JOIN  UserLeave INNER JOIN Userinfo ON UserLeave.Userid = Userinfo.Userid LEFT OUTER JOIN  Dept ON Userinfo.Deptid = Dept.Deptid ON LeaveClass.Classid = UserLeave.LeaveClassid " & _
+'              "WHERE  (Userinfo.IDCard BETWEEN '" & Me.TDBCodigoEmpleado.Columns(0).Text & "' AND '" & Me.TDBCodigoEmpleado.Columns(0).Text & "')"
+        ArepJustificacion2.DataControl1.ConnectionString = ConexionEasy
+        ArepJustificacion2.DataControl1.Source = sql
+        ArepJustificacion2.Show 1
         
         
 '         Set rpt = New ArepJustificacion

@@ -1447,7 +1447,7 @@ Begin VB.Form FrmReportesReloj
             _ExtentX        =   3413
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   77856769
+            Format          =   81264641
             CurrentDate     =   40789
          End
          Begin MSComCtl2.DTPicker DTFechaFin 
@@ -1459,7 +1459,7 @@ Begin VB.Form FrmReportesReloj
             _ExtentX        =   3201
             _ExtentY        =   529
             _Version        =   393216
-            Format          =   77856769
+            Format          =   81264641
             CurrentDate     =   40789
          End
          Begin VB.Label Label4 
@@ -2753,7 +2753,7 @@ Dim fPreview As New FrmPreview, i As Double, Dia As String, FechaInicioH As Stri
 Dim cn As New ADODB.Connection, DiferenciaDias As Double, DiasCiclo As Double, Periodo As Double, DiaPeriodo As Double
 Dim rs As New ADODB.Recordset, FechaActual As Date, DiasSumar As Double, FechaHorario As Date
 Dim DiaInicio As Double, Ciclo As Double, BInTime As String, EInTime As String, BOutTime As String, EOutTime As String, TardePermintido As Double, InTime As String, OutTime As String
-Dim Entrada As String, Salida As String, HorasTrabajadas As String, HorasExtras As Double, HoraSalida As Date, HoraSalidaHorario As Date
+Dim Entrada As String, Salida As String, Salida2 As String, Entrada2 As String, HorasTrabajadas As String, HorasExtras As Double, HoraSalida As Date, HoraSalidaHorario As Date
 Dim HoraEntrada As Date, HoraHorario As Date, MinutosTarde As String, Cod As Double, FechaIn As String, FechaOut As String
 Dim FechaHInicio As String, FechaHFinal As String, SQlSalida As String, j As Double, b As Double, HoraLaboradas As String
 Dim TotalHorasTrabajadas As Double, TotalHorasExtras As Double, HorasTarde As Double, TotalHoras As Double, HoraHorarioSalida As Date, HoraAnticipada As Double
@@ -3741,12 +3741,19 @@ Select Case Me.CmbReportes.Text
                         End If
                             
                         Entrada = "00:00"
+                        Entrada2 = "00:00"
                         If TieneJornadas = True Then
                         
                             Me.AdoConsulta.RecordSource = sql
                             Me.AdoConsulta.Refresh
                             If Not Me.AdoConsulta.Recordset.EOF Then
                               Entrada = Me.AdoConsulta.Recordset("CheckTime")
+                              
+                              '/////////////////VERIFICO SEGUNDO REGISTRO /////////////////
+                              If Me.AdoConsulta.Recordset.RecordCount > 1 Then
+                                Me.AdoConsulta.Recordset.MoveLast
+                                Entrada2 = Me.AdoConsulta.Recordset("CheckTime")
+                              End If
                             End If
                        
                         Else
@@ -3754,6 +3761,12 @@ Select Case Me.CmbReportes.Text
                             Me.AdoConsulta.Refresh
                             If Not Me.AdoConsulta.Recordset.EOF Then
                               Entrada = Me.AdoConsulta.Recordset("CheckTime")
+                              
+                              '/////////////////VERIFICO SEGUNDO REGISTRO /////////////////
+                              If Me.AdoConsulta.Recordset.RecordCount > 1 Then
+                                Me.AdoConsulta.Recordset.MoveLast
+                                Entrada2 = Me.AdoConsulta.Recordset("CheckTime")
+                              End If
                             End If
                             
                            If Entrada <> "00:00" Then
@@ -3776,6 +3789,7 @@ Select Case Me.CmbReportes.Text
                     '///////////////CON ESTA CONSULTA BUSCO LA HORA DE SALIDA///////////////////////////////////
                     '*********************************************************************************************
                         Salida = "00:00"
+                        Salida2 = "00:00"
                         If TieneJornadas = True Then
                            
                              '///////////////////////////////CON ESTAS FECHAS BUSCO LA HORA DE SALIDA DE LA JORNADA ///////////////////
@@ -3802,6 +3816,15 @@ Select Case Me.CmbReportes.Text
                             Me.AdoConsulta.RecordSource = SQlSalida
                             Me.AdoConsulta.Refresh
                             If Not Me.AdoConsulta.Recordset.EOF Then
+                              '/////////////////VERIFICO SEGUNDO REGISTRO /////////////////
+                              If Me.AdoConsulta.Recordset.RecordCount > 1 Then
+                                Me.AdoConsulta.Recordset.MoveFirst
+                                Salida2 = Me.AdoConsulta.Recordset("CheckTime")
+                              Else
+                                 Salida2 = "00:00"
+                              End If
+                            
+                            
                                 Me.AdoConsulta.Recordset.MoveLast
                                 Salida = Me.AdoConsulta.Recordset("CheckTime")
                             ElseIf JornadaIntercalada = True Then
@@ -3814,15 +3837,20 @@ Select Case Me.CmbReportes.Text
                             Me.AdoConsulta.RecordSource = SQlSalida
                             Me.AdoConsulta.Refresh
                             If Not Me.AdoConsulta.Recordset.EOF Then
+                              '/////////////////VERIFICO SEGUNDO REGISTRO /////////////////
+                              If Me.AdoConsulta.Recordset.RecordCount > 1 Then
+                                Me.AdoConsulta.Recordset.MoveFirst
+                                Salida2 = Me.AdoConsulta.Recordset("CheckTime")
+                              Else
+                                Salida2 = "00:00"
+                              End If
+                            
+                            
                               Me.AdoConsulta.Recordset.MoveLast
                               Salida = Me.AdoConsulta.Recordset("CheckTime")
                             End If
                         End If
                         
-                       If Entrada = Salida Then
-                          Entrada = "00:00"
-                          Salida = "00:00"
-                       End If
                     
                     '*********************************************************************************************
                     '///////////////CON ESTA CONSULTA BUSCO EL NOMBRE DEL EMPLEADO///////////////////////////////////
@@ -3863,9 +3891,28 @@ Select Case Me.CmbReportes.Text
     '                  HorasExtras = 0
     '                End If
     
-                        If CodEmpleado = "168" Then
-                         CodEmpleado = "168"
+                        '////////////////////////////////////////////////////////////////////////////////////
+                        '/////////////////////////////VALIDACION SEGUNDO REGISTRO ////////////////////////
+                        '//////////////////////////////////////////////////////////////////////////////////
+                        
+                        If Salida = "00:00" Then
+                          If Entrada2 <> "00:00" Then
+                             Salida = Entrada2
+                          End If
                         End If
+                        
+                        If Entrada = "00:00" Then
+                          If Salida2 <> "00:00" Then
+                             Entrada = Salida2
+                          End If
+                        End If
+                        
+                       If Entrada = Salida Then
+                          Entrada = "00:00"
+                          Salida = "00:00"
+                       End If
+                        
+                        
                      
                         '///////////////////////////////////////////////////////////////////////////////////////////////////////////////
                         '/////////////////////////BUSCO SI EL EMPLEADO EXISTE ///////////////////////////////////////
@@ -5231,7 +5278,7 @@ Dim fPreview As New FrmPreview, i As Double, Dia As String, FechaInicioH As Stri
 Dim cn As New ADODB.Connection, DiferenciaDias As Double, DiasCiclo As Double, Periodo As Double, DiaPeriodo As Double
 Dim rs As New ADODB.Recordset, FechaActual As Date, DiasSumar As Double, FechaHorario As Date
 Dim DiaInicio As Double, Ciclo As Double, BInTime As String, EInTime As String, BOutTime As String, EOutTime As String, TardePermintido As Double, InTime As String, OutTime As String
-Dim Entrada As String, Salida As String, HorasTrabajadas As String, HorasExtras As Double, HoraSalida As Date, HoraSalidaHorario As Date
+Dim Entrada As String, Salida As String, Salida2 As String, Entrada2 As String, HorasTrabajadas As String, HorasExtras As Double, HoraSalida As Date, HoraSalidaHorario As Date
 Dim HoraEntrada As Date, HoraHorario As Date, MinutosTarde As String, Cod As Double, FechaIn As String, FechaOut As String
 Dim FechaHInicio As String, FechaHFinal As String, SQlSalida As String, j As Double, b As Double, HoraLaboradas As String
 Dim TotalHorasTrabajadas As Double, TotalHorasExtras As Double, HorasTarde As Double, TotalHoras As Double, HoraHorarioSalida As Date, HoraAnticipada As Double
@@ -7452,7 +7499,7 @@ Dim fPreview As New FrmPreview, i As Double, Dia As String, FechaInicioH As Stri
 Dim cn As New ADODB.Connection, DiferenciaDias As Double, DiasCiclo As Double, Periodo As Double, DiaPeriodo As Double
 Dim rs As New ADODB.Recordset, FechaActual As Date, DiasSumar As Double, FechaHorario As Date
 Dim DiaInicio As Double, Ciclo As Double, BInTime As String, EInTime As String, BOutTime As String, EOutTime As String, TardePermintido As Double, InTime As String, OutTime As String
-Dim Entrada As String, Salida As String, HorasTrabajadas As String, HorasExtras As Double, HoraSalida As Date, HoraSalidaHorario As Date
+Dim Entrada As String, Salida As String, Salida2 As String, Entrada2 As String, HorasTrabajadas As String, HorasExtras As Double, HoraSalida As Date, HoraSalidaHorario As Date
 Dim HoraEntrada As Date, HoraHorario As Date, MinutosTarde As String, Cod As Double, FechaIn As String, FechaOut As String
 Dim FechaHInicio As String, FechaHFinal As String, SQlSalida As String, j As Double, b As Double, HoraLaboradas As String
 Dim TotalHorasTrabajadas As Double, TotalHorasExtras As Double, HorasTarde As Double, TotalHoras As Double, HoraHorarioSalida As Date, HoraAnticipada As Double
