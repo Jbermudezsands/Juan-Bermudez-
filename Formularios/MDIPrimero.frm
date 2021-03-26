@@ -146,8 +146,6 @@ Begin VB.MDIForm MDIPrimero
             Object.Width           =   1773
             MinWidth        =   1764
             Picture         =   "MDIPrimero.frx":2FF80E
-            TextSave        =   ""
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel2 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
@@ -155,21 +153,17 @@ Begin VB.MDIForm MDIPrimero
             MinWidth        =   7937
             Text            =   "Licencia: Juan"
             TextSave        =   "Licencia: Juan"
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel3 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Object.Width           =   3528
             MinWidth        =   3528
-            TextSave        =   ""
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel4 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Style           =   1
             Enabled         =   0   'False
             TextSave        =   "MAYÚS"
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel5 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
@@ -177,13 +171,11 @@ Begin VB.MDIForm MDIPrimero
             Object.Width           =   1393
             MinWidth        =   1393
             TextSave        =   "NÚM"
-            Key             =   ""
             Object.Tag             =   ""
          EndProperty
          BeginProperty Panel6 {0713E89F-850A-101B-AFC0-4210102A8DA7} 
             Style           =   5
-            TextSave        =   "04:05 p.m."
-            Key             =   ""
+            TextSave        =   "07:24 a.m."
             Object.Tag             =   ""
          EndProperty
       EndProperty
@@ -1047,6 +1039,11 @@ Private Sub CommandBars_Execute(ByVal Control As XtremeCommandBars.ICommandBarCo
                   MDIPrimero.MousePointer = 11
                     FrmExportarExcel.Show 1
                   MDIPrimero.MousePointer = 0
+                  
+        Case 1713:
+                  MDIPrimero.MousePointer = 11
+                    FrmJustificaciones.Show 1
+                  MDIPrimero.MousePointer = 0
         End Select
 End Sub
 
@@ -1105,6 +1102,7 @@ Private Sub CreateRibbonBar()
     CommandBars.Icons.LoadBitmap App.Path & "\Imagenes\Nominas.png", 1710, xtpImageNormal
     CommandBars.Icons.LoadBitmap App.Path & "\Imagenes\Excel2.png", 1711, xtpImageNormal
     CommandBars.Icons.LoadBitmap App.Path & "\Imagenes\ExportarExcel5.png", 1712, xtpImageNormal
+    CommandBars.Icons.LoadBitmap App.Path & "\Imagenes\Justificacion.png", 1713, xtpImageNormal
     '
 '
 '    '///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1118,7 +1116,7 @@ Private Sub CreateRibbonBar()
            Set Control = ControlFile.CommandBar.Controls.Add(XtremeCommandBars.XTPControlType.xtpControlButton, 1300, "S&alir", False, False)
     Control.BeginGroup = True
     ControlFile.CommandBar.SetIconSize 35, 35
-    RibbonBar.QuickAccessControls.Add XtremeCommandBars.XTPControlType.xtpControlButton, ID_FILE_SAVE, "Zeus Reloj CrossChex 6.22", False, False
+    RibbonBar.QuickAccessControls.Add XtremeCommandBars.XTPControlType.xtpControlButton, ID_FILE_SAVE, "Zeus Reloj CrossChex 6.23", False, False
 '
 '    '///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 '    '///////////////////////////////////CREO LOS TABS//////////////////////////////////////////////////
@@ -1142,6 +1140,8 @@ Private Sub CreateRibbonBar()
      Set item = GroupFile.Add(XtremeCommandBars.XTPControlType.xtpControlButton, 1708, "&Asignacion de Jornadas", False, False)
      item.Style = xtpButtonIconAndCaptionBelow
      Set item = GroupFile.Add(XtremeCommandBars.XTPControlType.xtpControlButton, 1709, "&Configuracion Horarios", False, False)
+     item.Style = xtpButtonIconAndCaptionBelow
+     Set item = GroupFile.Add(XtremeCommandBars.XTPControlType.xtpControlButton, 1713, "&Justificaciones", False, False)
      item.Style = xtpButtonIconAndCaptionBelow
     '/////////////////////////////////////////////////////////////////////////////////////////////////////
     '///////////////////////////////CREO EL TABS DE OPCIONES//////////////////////////////////////////////
@@ -1601,7 +1601,7 @@ item.SetIcon LoadIcon("Imagenes\Imagen.ico", 32, 32), xtpPopupItemIconNormal
 Set item = PopupControl1.AddItem(50, 29, 400, 100, "Direc:" & DtaEmpresa.Recordset("Direccion"))
 item.TextColor = RGB(0, 61, 178)
 item.Bold = True
-Set item = PopupControl1.AddItem(60, 60, 400, 100, "ZEUS RELOJ CROSSCHEX 6.22")
+Set item = PopupControl1.AddItem(60, 60, 400, 100, "ZEUS RELOJ CROSSCHEX 6.23")
     item.Bold = True
     PopupControl1.VisualTheme = xtpPopupThemeOffice2003
     PopupControl1.SetSize 300, 110

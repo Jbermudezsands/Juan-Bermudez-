@@ -20,13 +20,15 @@ Public TotalHoraEmpleado As String, TotalHorasDepartamento As String
 Private Sub Detail_Format()
 Dim TotalHoras As String
 
-TotalHoras = DateDiff("s", Me.FldBegin.Text, Me.FldEnd.Text)
-Me.LblTotalHoras.Caption = Int(TotalHoras / 3600) & ":" & Int((TotalHoras Mod 3600) / 60)
-
-TotalHoraEmpleado = sumaHoras(Me.LblTotalHoras.Caption, TotalHoraEmpleado)
-TotalHorasDepartamento = sumaHoras(Me.LblTotalHoras.Caption, TotalHorasDepartamento)
-
-Me.LblFechaHora.Caption = Format(Me.FldBegin.Text, "dd/mm/yyyy") & "-" & Format(Me.FldEnd.Text, "dd/mm/yyyy")
+If Me.FldBegin.Text <> "" Then
+    TotalHoras = DateDiff("s", Me.FldBegin.Text, Me.FldEnd.Text)
+    Me.LblTotalHoras.Caption = Int(TotalHoras / 3600) & ":" & Int((TotalHoras Mod 3600) / 60)
+    
+    TotalHoraEmpleado = sumaHoras(Me.LblTotalHoras.Caption, TotalHoraEmpleado)
+    TotalHorasDepartamento = sumaHoras(Me.LblTotalHoras.Caption, TotalHorasDepartamento)
+    
+    Me.LblFechaHora.Caption = Format(Me.FldBegin.Text, "dd/mm/yyyy") & "-" & Format(Me.FldEnd.Text, "dd/mm/yyyy")
+End If
 
 End Sub
 

@@ -68,7 +68,7 @@ TotalHoraEmpleado = sumaHoras(Me.LblTotalHoras.Caption, TotalHoraEmpleado)
 TotalHorasDepartamento = sumaHoras(Me.LblTotalHoras.Caption, TotalHorasDepartamento)
 
 'Me.LblFechaHora.Caption = Format(Me.FldBegin.Text, "dd/mm/yyyy") & "-" & Format(Me.FldEnd.Text, "dd/mm/yyyy")
-Me.LblFechaHora.Caption = Format(Me.FldBegin.Text, "dd/mm/yyyy HH:MM") & " - " & Format(Me.FldEnd.Text, "dd/mm/yyyy HH:MM")
+'Me.LblFechaHora.Caption = Format(Me.FldBegin.Text, "dd/mm/yyyy HH:MM") & " - " & Format(Me.FldEnd.Text, "dd/mm/yyyy HH:MM")
 End Sub
 
 Private Sub GroupFooter1_Format()
